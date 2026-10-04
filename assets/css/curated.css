@@ -6,5 +6,30 @@
 .curated-focus-grid{grid-template-columns:1fr}
 .curated-focus-grid .sr-box-about p{max-width:none}
 .case-field p,.detail-sidebar,.contact-block a{overflow-wrap:anywhere}
+.about-bio-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:64px;align-items:start}
+.about-bio-copy p{max-width:720px;line-height:1.8;margin-bottom:24px}
+.about-bio-copy strong,.about-approach strong{font-weight:600}
+.about-photo{margin:0;min-width:0}
+.about-photo-link{display:block}
+.about-photo-link:focus-visible{outline:3px solid #a43528;outline-offset:5px}
+.about-portrait-frame{aspect-ratio:4/5;overflow:hidden;background:#d4dfdf}
+.about-portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.about-photo figcaption{font-size:.875rem;line-height:1.5;padding-top:16px;color:var(--light-ink)}
+.about-recognition{margin-top:72px;padding-top:48px;border-top:1px solid #bcc9cb}
+.about-recognition-gallery{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px}
+.about-award-media{height:clamp(300px,35vw,480px);background:var(--surface-deep)}
+.about-award-media img{display:block;width:100%;height:100%;object-fit:contain}
+.about-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.about-project{min-width:0;padding:36px;border:1px solid var(--line);background:var(--surface)}
+.about-project h3{font-size:clamp(1.4rem,2vw,1.85rem);font-weight:500;line-height:1.3;letter-spacing:-.025em;margin-bottom:24px}
+.about-project p{line-height:1.8;color:var(--muted);margin-bottom:18px}
+.about-project p:last-child{margin-bottom:0}
+.about-approach-copy{max-width:1000px}
+.about-approach-copy p{line-height:1.8;margin-bottom:26px}
+.about-security-focus{padding:24px 28px;background:#dce5e4;border-left:3px solid #a43528}
+.about-methodology{font-size:clamp(1.125rem,1.8vw,1.4rem);line-height:1.8}
+.about-goal{padding-top:28px;border-top:1px solid #bcc9cb}
 @media(max-width:1199px){.curated-work-grid{grid-template-columns:1fr}.curated-work-grid .case-card header{margin-bottom:24px}.curated-work-grid .case-card h3{font-size:1.7rem}}
+@media(max-width:991px){.about-bio-grid{gap:32px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.about-project{padding:28px}.about-recognition-gallery{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}}
 @media(max-width:767px){.curated-work-grid .case-card h3{font-size:1.5rem}}
+@media(max-width:767px){.about-bio-grid,.about-project-grid,.about-recognition-gallery{grid-template-columns:minmax(0,1fr)}.about-bio-grid{gap:30px}.about-portrait{width:100%;max-width:420px}.about-portrait-frame{aspect-ratio:4/3}.about-recognition{margin-top:48px;padding-top:35px}.about-award-media{height:auto}.about-award-media img{height:auto}.about-project{padding:26px 22px}.about-security-focus{padding:20px}.about-approach-copy p{margin-bottom:24px}}

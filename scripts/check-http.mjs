@@ -26,8 +26,8 @@ try{
   try{await fs.access(path.join(root,'public/sitemap.xml'));targets.push('sitemap.xml');}catch{}
   const results=[];
   for(let i=0;i<targets.length;i+=8)results.push(...await Promise.all(targets.slice(i,i+8).map(request)));
-  const errors=results.filter(result=>result.status!==200||!result.bytes||!result.csp);
-  const report={result:errors.length?'fail':'pass',staticPagesChecked:pages.length,assetFilesChecked:assets.length,totalResponses:results.length,non200OrEmptyResponses:errors,headersPresentOnAllResponses:results.every(r=>r.csp),browserRendering:'unverified',production:'not established by the local HTTP check'};
+  const errors=results.filter(result=>result.status!==200||!result.bytes||!result.csp||(/\.jpe?g$/i.test(result.file)&&result.contentType!=='image/jpeg'));
+  const report={result:errors.length?'fail':'pass',staticPagesChecked:pages.length,assetFilesChecked:assets.length,jpegPhotosChecked:results.filter(result=>/\.jpe?g$/i.test(result.file)).length,totalResponses:results.length,failedResponses:errors,headersPresentOnAllResponses:results.every(r=>r.csp),browserRendering:'unverified',production:'not established by the local HTTP check'};
   await fs.writeFile(path.join(root,'docs/http-verification.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report));
   if(errors.length)process.exitCode=1;

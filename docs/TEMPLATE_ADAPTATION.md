@@ -4,12 +4,14 @@ The supplied archive and documentation were read and inventoried before adaptati
 
 The public presentation is curated around four primary pages and three generic study designs. Product-specific research content and working plans are excluded. Evidence labels remain accurate; all selected studies are planned.
 
+About now presents the full supplied biography and award recognition, a responsive two-column grid for four generic AI-system profiles, and the supplied security engineering approach. Three original user photos are included with intrinsic dimensions, descriptive alternative text and links to the originals. Project cards and photo galleries stack at narrow widths; certificate and trophy images use containment. The homepage About preview includes the supplied introduction and award statement. Existing focus carousel and native disclosures remain available below the full About content.
+
 | Original route | Current purpose |
 |---|---|
 | `index.html` | Home |
 | `index-2.html` | Manual slider home variant |
 | `index-3.html` | Static fallback home variant |
-| `about.html` | About and broad security focus |
+| `about.html` | Full supplied About text, recognition photos, four project profiles and engineering approach |
 | `services.html` | About equivalent |
 | `single-service.html` | About equivalent |
 | `projects.html` | Selected work |

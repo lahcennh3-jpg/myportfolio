@@ -71,5 +71,101 @@
       "result": "Execution and runtime results remain pending.",
       "limitations": "This is a planned investigation. It establishes no protocol implementation, confirmed vulnerability or professional engagement."
     }
-  ]
+  ],
+  "fullName": "Ahmed Amhdour",
+  "about": {
+    "biography": [
+      "I’m **Ahmed Amhdour**, a self-taught **AI Security Engineer** focused on securing AI applications, RAG systems, autonomous agents, and the infrastructure that connects them.",
+      "I’m also a **GITEX AFRICA 2026 Cyber & AI Achiever Award recipient — Rising Star (Individual)**, recognized in Marrakech for my work and direction in cybersecurity and AI security.",
+      "My focus is on understanding where **identity, sensitive data, retrieval, models, tools, agents, and external services cross trust boundaries**. I approach AI security through source-code analysis, threat modeling, controlled security labs, architecture tracing, adversarial testing, and reproducible evidence.",
+      "Rather than focusing on a single framework, I study security principles that transfer across modern AI systems."
+    ],
+    "projects": [
+      {
+        "title": "First Project — Enterprise AI Assistant Platform",
+        "paragraphs": [
+          "I study the security of enterprise AI assistants that connect employees with organizational knowledge, language models, retrieval systems, and agent tools.",
+          "My work focuses on authentication and authorization, private conversations and files, secure document ingestion, RAG permissions, prompt injection, agent actions, MCP-style integrations, secrets, sandboxing, logging, supply-chain security, incident response, and secure deployment."
+        ]
+      },
+      {
+        "title": "Second Project — Self-Hosted AI Chat Platform",
+        "paragraphs": [
+          "I study self-hosted AI applications that provide users with access to local and remote language models.",
+          "My security focus includes session security, user isolation, model-provider configuration, API-key protection, file uploads, tool permissions, prompt injection, sensitive-data exposure, logging, and deployment hardening."
+        ]
+      },
+      {
+        "title": "Third Project — Private AI Knowledge Workspace",
+        "paragraphs": [
+          "I study AI knowledge systems that ingest private documents and use retrieval-augmented generation to answer questions.",
+          "My focus includes document ownership, ingestion security, retrieval authorization, vector-search permissions, embedding privacy, indirect prompt injection, permission revocation, sensitive-data handling, retention, deletion, and secure multi-user access."
+        ]
+      },
+      {
+        "title": "Fourth Project — Multi-Provider AI Conversation Platform",
+        "paragraphs": [
+          "I study AI platforms that connect users with multiple models, providers, tools, and external services through a common application.",
+          "My security work focuses on identity, API authorization, provider credentials, conversation privacy, uploaded content, model routing, tool permissions, external integrations, logging, output handling, and preventing untrusted AI-generated content from becoming trusted authority."
+        ]
+      }
+    ],
+    "approach": {
+      "title": "My Security Engineering Approach",
+      "focusLead": "Across these systems, I concentrate on the security problems that remain important regardless of the underlying technology:",
+      "focus": [
+        "Authorization",
+        "RAG Security",
+        "Agent Security",
+        "Prompt Injection",
+        "Tool Security",
+        "Sensitive Data Protection",
+        "Identity",
+        "Sandboxing",
+        "Supply-Chain Security",
+        "Observability",
+        "Security Evaluation",
+        "Incident Readiness"
+      ],
+      "methodologyLead": "My working methodology is:",
+      "methodology": [
+        "Inspect",
+        "Trace",
+        "Predict",
+        "Test",
+        "Observe",
+        "Explain",
+        "Improve",
+        "Retest"
+      ],
+      "evidence": "I want security conclusions to be based on evidence rather than assumptions. I therefore distinguish between source analysis, planned experiments, controlled lab results, independently demonstrated work, and real production experience.",
+      "goal": "My goal is to help build AI systems where **data access is intentional, agent authority is constrained, actions are independently authorized, failures are observable, and security claims can be demonstrated with evidence.**"
+    },
+    "photos": [
+      {
+        "src": "img/about/ahmed-portrait.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Portrait of Ahmed Amhdour.",
+        "caption": "Ahmed Amhdour · AI Security Engineer",
+        "placement": "portrait"
+      },
+      {
+        "src": "img/about/gitex-award-presentation.jpg",
+        "width": 1280,
+        "height": 853,
+        "alt": "Ahmed Amhdour holding his award at the GITEX AFRICA 2026 presentation.",
+        "caption": "GITEX AFRICA 2026 · Award presentation",
+        "placement": "recognition"
+      },
+      {
+        "src": "img/about/gitex-rising-star-award.jpg",
+        "width": 1200,
+        "height": 1600,
+        "alt": "Ahmed Amhdour’s Cyber & AI Achiever Awards certificate and Rising Star trophy, GITEX AFRICA 2026, Marrakech.",
+        "caption": "Rising Star (Individual) · Certificate and trophy",
+        "placement": "recognition"
+      }
+    ]
+  }
 }

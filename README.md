@@ -1,12 +1,14 @@
 # Ahmed — AI Security Engineering Portfolio
 
-A concise static portfolio for Ahmed’s AI application and product security direction.
+A static portfolio for Ahmed Amhdour’s AI application and product security direction.
 
 The public site contains **Home, Selected Work, About and Contact**, with three generic study overviews. Product identities, named study dependencies, research inputs, detailed learning plans and research downloads are excluded from the current source and build output. Required asset notices remain intact.
 
 ## Content and evidence
 
 The selected entries cover object authorization, retrieval permissions and tool authority. Each is explicitly a **Planned study** with execution and runtime results pending. No completed assessment, product finding, customer engagement or production experience is claimed.
+
+About contains Ahmed’s supplied biography, GITEX AFRICA 2026 Rising Star (Individual) award statement, four generic AI-system project profiles and full security engineering approach. The homepage previews the introduction and recognition. The portrait, award-presentation photo and certificate/trophy photo are supplied originals, copied without pixel changes; the jury screenshot is not published. Photo links open the full original image.
 
 The original template’s 18 routes remain available as generic portfolio equivalents. The alternative slider and static video-fallback routes, mobile navigation, sticky header, filtering, carousel, disclosures, scroll transitions and footer remain supported.
 
@@ -26,7 +28,7 @@ The preview uses port 8765 unless `PORT` is set. Generated output is `public` an
 
 | Path | Purpose |
 |---|---|
-| `data/portfolio.json` | Public profile, broad focus and three generic planned studies |
+| `data/portfolio.json` | Public profile, full About text, photo descriptions and three generic planned studies |
 | `src/layout.html` | Shared static shell and four-item navigation |
 | `scripts/build.mjs` | Static generator and explicit public asset allowlist |
 | `scripts/check-content.mjs` | Disclosure, artifact, link and evidence-status checks |
@@ -37,7 +39,7 @@ The preview uses port 8765 unless `PORT` is set. Generated output is `public` an
 
 ## Verification
 
-The production build and content checks pass for 22 HTML pages and 15 assets. Static validation checks 728 link/asset references. Local HTTP validation checks 22 pages + 15 assets + robots.txt = 38 nonempty HTTP 200 responses, all carrying the intended security headers. A disclosure audit compares the output with all 143 former study-project identities; none appear in the published content or project links. Obsolete encoded staging payloads are removed from the current source.
+The production build and content checks pass for 22 HTML pages and 18 assets, including three original JPEG photos. Content verification checks all 18 supplied About paragraphs, four project profiles, twelve focus areas and eight methodology steps. Static validation checks 763 link/asset references. Local HTTP validation checks 22 pages + 18 assets + robots.txt = 41 nonempty HTTP 200 responses, all carrying the intended security headers; the photos use `image/jpeg`. A disclosure audit compares the output with all 143 former study-project identities; none appear in the published content or project links. Obsolete encoded staging payloads are removed from the current source.
 
 ## Publishing
 

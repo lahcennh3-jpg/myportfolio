@@ -1,8 +1,15 @@
 {
   "result": "pass",
   "formerProjectIdentitiesChecked": 143,
-  "currentSourceFilesChecked": 37,
+  "currentSourceFilesChecked": 40,
+  "textSourceFilesChecked": 37,
+  "originalUserPhotos": 3,
   "currentSourceViolations": [],
+  "incidentalWordMatchesReviewed": 3,
+  "nonProjectContexts": [
+    "local filtering variable",
+    "retained license wording"
+  ],
   "publicHtmlNameAudit": "pass",
   "publicArtifactProjectUrlAudit": "pass",
   "obsoleteStagingPayloadFilesRemoved": 2,

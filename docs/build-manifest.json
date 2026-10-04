@@ -7,6 +7,8 @@
     "About",
     "Contact"
   ],
+  "aboutProjects": 4,
+  "aboutPhotos": 3,
   "selectedStudies": [
     {
       "slug": "authorization",
@@ -37,7 +39,10 @@
     "assets/js/vendor/slick.min.js",
     "assets/js/vendor/gsap.min.js",
     "assets/js/vendor/ScrollTrigger.min.js",
-    "assets/js/portfolio.js"
+    "assets/js/portfolio.js",
+    "assets/img/about/ahmed-portrait.jpg",
+    "assets/img/about/gitex-award-presentation.jpg",
+    "assets/img/about/gitex-rising-star-award.jpg"
   ],
   "pages": [
     "index.html",
