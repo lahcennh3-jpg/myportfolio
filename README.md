@@ -22,6 +22,7 @@ Node.js is sufficient. There are no package dependencies to install.
 ```bash
 npm run build
 npm run check
+npm run check:http
 npm run preview
 ```
 
@@ -76,6 +77,8 @@ An accessible Vercel team is required before the repository can be linked with t
 ## Verification
 
 Static compilation and the authored checks pass for **86 HTML pages**, **3,277 link/asset references**, **40 mission identifiers**, and **24 fields in each of eight candidate tracks**. The generated report is `docs/static-verification.json`.
+
+The HTTP integration check also passes: **86 pages + 14 asset files + robots.txt = 101 responses**, all nonempty HTTP 200 responses with the intended security headers. This test runs the preview server and its requests in the same process; it does not establish browser rendering or a production deployment. Its report is `docs/http-verification.json`.
 
 The cloud browser could not open the local HTTP preview; direct local-file navigation was also rejected by its URL policy. Browser visual QA, the six requested viewport checks, actual CSS layout, browser console, and live production checks remain **unverified**. The presence of responsive CSS does not establish that those checks passed.
 

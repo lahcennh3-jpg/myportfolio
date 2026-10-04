@@ -1,0 +1,11 @@
+{
+  "result": "pass",
+  "staticPages": 86,
+  "linksAndAssetsChecked": 3277,
+  "missionIdentifiers": 40,
+  "caseStudyCandidates": 8,
+  "caseStudyFieldsPerTrack": 24,
+  "errors": [],
+  "browserVerification": "separate",
+  "productionVerification": "blocked: required catalog and Vercel team are unavailable"
+}

@@ -1,0 +1,10 @@
+{
+  "result": "pass",
+  "staticPagesChecked": 86,
+  "assetFilesChecked": 14,
+  "totalResponses": 101,
+  "non200OrEmptyResponses": [],
+  "headersPresentOnAllResponses": true,
+  "browserRendering": "unverified",
+  "production": "not deployed"
+}
