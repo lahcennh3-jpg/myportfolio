@@ -5,6 +5,7 @@ The supplied career brief defines Ahmed’s name, direction, GitHub destination 
 | Public content | Scope |
 |---|---|
 | Profile | Supplied identity, self-taught AI Security Engineer description and AI application/product security direction |
+| Opening homepage | Full-name heading and a personal presentation based on the supplied role and security focus, without learning or studying language |
 | About | User-authored biography, four generic project descriptions and full methodology, preserving the supplied wording and emphasis |
 | Homepage About | Short professional summary and recognition line based on the supplied biography, without learning or studying language |
 | Award | User-supplied GITEX AFRICA 2026 Rising Star (Individual) statement; supplied presentation and certificate/trophy photos show that recognition |

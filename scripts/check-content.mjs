@@ -35,6 +35,13 @@ for(const photo of data.about.photos){
   expect(manifest.assets.includes('assets/'+photo.src),`${photo.src}: the photo is not allowlisted.`);
 }
 const homeHtml=await fs.readFile(path.join(directory,'index.html'),'utf8');
+for(const file of ['index.html','index-2.html','index-3.html']){
+  const html=file==='index.html'?homeHtml:await fs.readFile(path.join(directory,file),'utf8');
+  const hero=html.match(/<section\b[^>]*id="home-intro"[^>]*>([\s\S]*?)<\/section>/)?.[1]||'';
+  expect(hero.includes(`<span class="name">${esc(data.fullName)}</span>`),`${file}: the opening heading omitted the full name or retained the name punctuation.`);
+  expect(hero.includes(esc(data.intro)),`${file}: the opening personal introduction is missing.`);
+  expect(!/\bstud(?:y|ies|ying)\b|\blearning\b|\bstudent\b/i.test(hero),`${file}: the opening section describes learning or studying.`);
+}
 const homeAbout=homeHtml.match(/<section\b[^>]*id="home-about"[^>]*>([\s\S]*?)<\/section>/)?.[1]||'';
 for(const copy of data.about.homeSummary)expect(homeAbout.includes(rich(copy)),'The short homepage About omitted the professional summary or award.');
 expect(!/\bstud(?:y|ies|ying)\b|\blearning\b|\bstudent\b/i.test(homeAbout),'The homepage About describes learning or studying.');

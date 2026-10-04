@@ -1,4 +1,8 @@
 /* Curated portfolio components. */
+.wordmark{font-size:clamp(1.15rem,2.1vw,1.55rem);letter-spacing:-.045em;line-height:1.2}
+.header-area .wordmark{min-height:38px;display:inline-flex;align-items:center}
+.hero-content h1 .name{overflow-wrap:anywhere;letter-spacing:-.04em}
+.hero-intro{max-width:630px;line-height:1.8}
 .curated-work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .curated-work-grid .case-card{min-width:0}
 .curated-work-grid .case-card h3{font-size:1.5rem;line-height:1.25}

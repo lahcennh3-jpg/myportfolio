@@ -2,6 +2,8 @@
 
 A static portfolio for Ahmed Amhdour’s AI application and product security direction.
 
+The opening homepage section presents Ahmed Amhdour’s full name and a personal introduction covering his AI security role, sensitive-data protection, authorization and agent security boundaries. Header and footer branding use the same full name. The opening section uses professional focus language without describing learning or studying.
+
 The public site contains **Home, Selected Work, About and Contact**, with three generic study overviews. Product identities, named study dependencies, research inputs, detailed learning plans and research downloads are excluded from the current source and build output. Required asset notices remain intact.
 
 ## Content and evidence
