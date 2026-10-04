@@ -41,7 +41,7 @@ The production build and content checks pass for 22 HTML pages and 15 assets. St
 
 ## Publishing
 
-Vercel configuration uses `npm run build:production`, output `public`, and production branch `main`. The existing project is `mywebsite` under `amhdour1s-projects`. Access previously returned 403 and requires a connection with access to that scope. No successful production deployment or live visual verification is asserted.
+Vercel build configuration uses `npm run build:production` and output `public`. Source is published on GitHub `main`. The repository-linked project is `myportfolio` under `amhdour1s-projects`. GitHub reports a successful Vercel deployment for content revision `676aeb0ab060262de32346a066188c32415d2fc2`; its [deployment record](https://vercel.com/amhdour1s-projects/myportfolio/DnortcESrNN1KmcvkXvqmysvUUu4) is linked from the GitHub commit status. Project management access still returns 403 and requires reauthentication to that scope. The production origin, deployment target and live browser behavior remain unverified.
 
 Set `productionUrl` only after verifying the actual HTTPS origin, then rebuild to generate canonical metadata and the sitemap. Duplicate template routes are noindex and point to the corresponding primary page when an origin is available.
 
