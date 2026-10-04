@@ -10,13 +10,17 @@ const errors=[];
 const expect=(condition,message)=>{if(!condition)errors.push(message);};
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rich=value=>esc(value).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
-const allowedKeys=['name','fullName','role','direction','intro','github','repository','productionUrl','publication','focus','studies','about'];
+const allowedKeys=['name','fullName','role','direction','intro','github','repository','productionUrl','publication','focus','about'];
 expect(Object.keys(data).every(key=>allowedKeys.includes(key)),'Unexpected research input is present in public data.');
 expect(data.publication.ready && data.publication.mode==='curated' && data.publication.researchDownloads===false,'Public disclosure policy changed.');
-expect(data.studies.length===3,'Expected three selected study designs.');
+const projectSlugs=['enterprise-ai-assistant','self-hosted-ai-chat','private-ai-knowledge','multi-provider-ai-conversation'];
+expect(JSON.stringify(data.about.projects.map(project=>project.slug))===JSON.stringify(projectSlugs),'Selected Work must use the four About project profiles in their supplied order.');
+expect(manifest.selectedProjects.length===4 && manifest.selectedProjects.every(project=>project.presentation==='Security focus'),'Project profiles must describe security focus without claiming completed results.');
 expect(!/\b(?:[MPCE]\d{2,3}|[a-f0-9]{40,64})\b/i.test(JSON.stringify(data)),'A research identifier or source pin reached public content.');
 expect(JSON.stringify(manifest.primaryNavigation)===JSON.stringify(['Home','Selected Work','About','Contact']),'The four-page navigation changed.');
-const allowedPages=['index.html','projects.html','about.html','contact.html','credits.html',...data.studies.map(study=>'work/'+study.slug+'.html'),'index-2.html','index-3.html','services.html','single-service.html','single-projects.html','team.html','team-single.html','blog.html','blog-details.html','faq.html','pricing.html','shop.html','shop-details.html','thank-you.html'];
+const legacyRoutes=[{file:'work/authorization.html',target:'work/enterprise-ai-assistant.html'},{file:'work/retrieval-permissions.html',target:'work/private-ai-knowledge.html'},{file:'work/tool-authorization.html',target:'work/multi-provider-ai-conversation.html'}];
+expect(JSON.stringify(manifest.legacyProjectRoutes)===JSON.stringify(legacyRoutes),'The existing project URLs lost their matching platform profiles.');
+const allowedPages=['index.html','projects.html','about.html','contact.html','credits.html',...projectSlugs.map(slug=>'work/'+slug+'.html'),...legacyRoutes.map(route=>route.file),'index-2.html','index-3.html','services.html','single-service.html','single-projects.html','team.html','team-single.html','blog.html','blog-details.html','faq.html','pricing.html','shop.html','shop-details.html','thank-you.html'];
 expect(new Set(manifest.pages).size===allowedPages.length && manifest.pages.every(file=>allowedPages.includes(file)),'Unexpected pages or duplicate routes were generated.');
 const aboutHtml=await fs.readFile(path.join(directory,'about.html'),'utf8');
 expect(data.fullName==='Ahmed Amhdour','The supplied full name changed.');
@@ -45,12 +49,29 @@ for(const file of ['index.html','index-2.html','index-3.html']){
 const homeAbout=homeHtml.match(/<section\b[^>]*id="home-about"[^>]*>([\s\S]*?)<\/section>/)?.[1]||'';
 for(const copy of data.about.homeSummary)expect(homeAbout.includes(rich(copy)),'The short homepage About omitted the professional summary or award.');
 expect(!/\bstud(?:y|ies|ying)\b|\blearning\b|\bstudent\b/i.test(homeAbout),'The homepage About describes learning or studying.');
-for(const study of data.studies){
-  expect(study.status==='Planned study' && study.result==='Execution and runtime results remain pending.',`${study.slug}: evidence status was promoted.`);
-  const html=await fs.readFile(path.join(directory,'work',study.slug+'.html'),'utf8');
-  expect((html.match(/class="case-field"/g)||[]).length===7,`${study.slug}: concise study fields are incomplete.`);
-  for(const key of ['problem','boundary','scope','approach','mitigation','result','limitations'])expect(html.includes(esc(study[key])),`${study.slug}: ${key} was omitted.`);
-  expect(html.includes('Planned study'),`${study.slug}: status label is absent.`);
+for(const file of ['index.html','index-2.html','index-3.html','projects.html','blog.html','shop.html']){
+  const html=await fs.readFile(path.join(directory,file),'utf8');
+  const selected=html.match(/<section\b[^>]*id="selected-work"[^>]*>([\s\S]*?)<\/section>/)?.[1]||'';
+  expect((selected.match(/class="case-card"/g)||[]).length===4,`${file}: Selected Work must show four project cards.`);
+  expect((selected.match(/class="status-label focus"/g)||[]).length===4,`${file}: the project focus labels are missing.`);
+  expect(!/\bstud(?:y|ies|ying)\b|\blearning\b|\bstudent\b/i.test(selected),`${file}: Selected Work describes learning or studying.`);
+  for(const project of data.about.projects){
+    const title=project.title.replace(/^[^—]+—\s*/,'');
+    expect(selected.includes(esc(title)) && selected.includes(esc(project.summary)) && selected.includes(`href="work/${project.slug}.html"`),`${file}: ${project.slug} is missing or differs from About.`);
+    expect(selected.includes(`data-category="${project.category}"`),`${file}: ${project.slug} has no filter control.`);
+    for(const area of project.focusAreas)expect(selected.includes(esc(area)),`${file}: ${project.slug} omitted a focus area.`);
+  }
+}
+for(const project of data.about.projects){
+  const html=await fs.readFile(path.join(directory,'work',project.slug+'.html'),'utf8');
+  expect(html.includes(esc(project.paragraphs[1])),`${project.slug}: the supplied security scope was omitted.`);
+  expect(html.includes(`href="../about.html#about-${project.slug}"`) && html.includes('href="../about.html#security-approach"'),`${project.slug}: the About profile or approach link is missing.`);
+  expect(!/\bstud(?:y|ies|ying)\b|\blearning\b|\bstudent\b/i.test(html),`${project.slug}: the project page describes learning or studying.`);
+  for(const area of project.focusAreas)expect(html.includes(esc(area)),`${project.slug}: a focus area is missing.`);
+}
+for(const route of legacyRoutes){
+  const html=await fs.readFile(path.join(directory,route.file),'utf8');
+  expect(html.includes('<meta name="robots" content="noindex, follow">') && !manifest.indexedPages.includes(route.file),`${route.file}: the legacy equivalent must be noindex.`);
 }
 async function walk(folder){return (await Promise.all((await fs.readdir(folder,{withFileTypes:true})).map(entry=>entry.isDirectory()?walk(path.join(folder,entry.name)):[path.relative(directory,path.join(folder,entry.name))]))).flat();}
 const files=await walk(directory);
@@ -67,7 +88,7 @@ for(const file of manifest.pages){
   }
   expect(!/\b(?:M\d{2}|P\d{3}|C\d{2}|U\d{2})\b/.test(html),`${file}: a research identifier was published.`);
 }
-const report={result:errors.length?'fail':'pass',primaryPages:4,aboutProjectProfiles:data.about.projects.length,suppliedAboutParagraphsChecked:aboutCopy.length,aboutPhotos:data.about.photos.length,selectedStudyDesigns:3,fieldsPerStudy:7,publishedPages:manifest.pages.length,publishedAssets:manifest.assets.length,externalLinksChecked:checkedExternalLinks,publicArtifactAllowlist:'enforced',researchDownloads:false,completedAssessmentClaims:0,browserRendering:'unverified',errors};
+const report={result:errors.length?'fail':'pass',primaryPages:4,aboutProjectProfiles:data.about.projects.length,suppliedAboutParagraphsChecked:aboutCopy.length,aboutPhotos:data.about.photos.length,selectedProjectProfiles:manifest.selectedProjects.length,projectListingsChecked:6,focusAreasPerProject:5,legacyProjectRoutes:legacyRoutes.length,publishedPages:manifest.pages.length,publishedAssets:manifest.assets.length,externalLinksChecked:checkedExternalLinks,publicArtifactAllowlist:'enforced',researchDownloads:false,completedAssessmentClaims:0,browserRendering:'unverified',errors};
 await fs.writeFile(path.join(root,'docs/content-verification.json'),JSON.stringify(report,null,2)+'\n');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
-console.log(`Content checks passed: four primary pages, three planned studies, ${files.length} allowlisted public artifacts, and ${checkedExternalLinks} approved profile links.`);
+console.log(`Content checks passed: four primary pages, four project profiles matching About, ${files.length} allowlisted public artifacts, and ${checkedExternalLinks} approved profile links.`);

@@ -1,9 +1,9 @@
 {
   "result": "pass",
-  "staticPagesChecked": 22,
+  "staticPagesChecked": 26,
   "assetFilesChecked": 18,
   "jpegPhotosChecked": 3,
-  "totalResponses": 41,
+  "totalResponses": 45,
   "failedResponses": [],
   "headersPresentOnAllResponses": true,
   "browserRendering": "unverified",

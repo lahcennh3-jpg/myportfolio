@@ -3,10 +3,13 @@
 .header-area .wordmark{min-height:38px;display:inline-flex;align-items:center}
 .hero-content h1 .name{overflow-wrap:anywhere;letter-spacing:-.04em}
 .hero-intro{max-width:630px;line-height:1.8}
-.curated-work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.curated-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .curated-work-grid .case-card{min-width:0}
 .curated-work-grid .case-card h3{font-size:1.5rem;line-height:1.25}
-.curated-work-grid .card-link{margin-top:auto;align-self:flex-start}
+.curated-work-grid .card-link{margin-top:auto;align-self:flex-start;padding-top:24px}
+.curated-work-grid .work-focus-tags{margin:0 0 8px;gap:6px}
+.curated-work-grid .work-focus-tags li{font-size:.8125rem;padding:5px 8px}
+.status-label.focus{color:#c3e5e3;border-color:#496c74}
 .curated-focus-grid{grid-template-columns:1fr}
 .curated-focus-grid .sr-box-about p{max-width:none}
 .case-field p,.detail-sidebar,.contact-block a{overflow-wrap:anywhere}
@@ -33,7 +36,7 @@
 .about-security-focus{padding:24px 28px;background:#dce5e4;border-left:3px solid #a43528}
 .about-methodology{font-size:clamp(1.125rem,1.8vw,1.4rem);line-height:1.8}
 .about-goal{padding-top:28px;border-top:1px solid #bcc9cb}
-@media(max-width:1199px){.curated-work-grid{grid-template-columns:1fr}.curated-work-grid .case-card header{margin-bottom:24px}.curated-work-grid .case-card h3{font-size:1.7rem}}
-@media(max-width:991px){.about-bio-grid{gap:32px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.about-project{padding:28px}.about-recognition-gallery{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}}
+@media(max-width:1199px){.curated-work-grid .case-card header{margin-bottom:24px}.curated-work-grid .case-card h3{font-size:1.5rem}}
+@media(max-width:991px){.curated-work-grid{grid-template-columns:1fr}.about-bio-grid{gap:32px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.about-project{padding:28px}.about-recognition-gallery{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}}
 @media(max-width:767px){.curated-work-grid .case-card h3{font-size:1.5rem}}
 @media(max-width:767px){.about-bio-grid,.about-project-grid,.about-recognition-gallery{grid-template-columns:minmax(0,1fr)}.about-bio-grid{gap:30px}.about-portrait{width:100%;max-width:420px}.about-portrait-frame{aspect-ratio:4/3}.about-recognition{margin-top:48px;padding-top:35px}.about-award-media{height:auto}.about-award-media img{height:auto}.about-project{padding:26px 22px}.about-security-focus{padding:20px}.about-approach-copy p{margin-bottom:24px}}

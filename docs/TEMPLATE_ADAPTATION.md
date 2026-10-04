@@ -2,9 +2,11 @@
 
 The supplied archive and documentation were read and inventoried before adaptation. The website retains static HTML/CSS/JavaScript architecture, the original grid/theme, responsive spacing, hero variants, mobile navigation, sticky header, bounded preloader, filters, carousel, native disclosures, scroll transitions and footer.
 
-The public presentation is curated around four primary pages and three generic study designs. Product-specific research content and working plans are excluded. Evidence labels remain accurate; all selected studies are planned.
+The public presentation is curated around four primary pages and four generic AI platform profiles derived from About. Product-specific research content and working plans are excluded. The project profiles describe security focus without presenting assessment results.
 
-About now presents the full supplied biography and award recognition, a responsive two-column grid for four generic AI-system profiles, and the supplied security engineering approach. Three original user photos are included with intrinsic dimensions, descriptive alternative text and links to the originals. Project cards and photo galleries stack at narrow widths; certificate and trophy images use containment. The homepage About preview includes the supplied introduction and award statement. Existing focus carousel and native disclosures remain available below the full About content.
+About now presents the full supplied biography and award recognition, a responsive two-column grid for four generic AI-system profiles, and the supplied security engineering approach. Three original user photos are included with intrinsic dimensions, descriptive alternative text and links to the originals. Project cards and photo galleries stack at narrow widths; certificate and trophy images use containment. The homepage About preview includes a short professional summary and award statement. Existing focus carousel and native disclosures remain available below the full About content.
+
+Selected Work uses a two-column card grid with platform filters, short summaries and five focus tags per card. Four detail pages include the full corresponding security-focus paragraph and About links. The three older project URLs remain available as noindex equivalents; the original template detail routes now show the matching platform profile.
 
 | Original route | Current purpose |
 |---|---|
@@ -15,17 +17,27 @@ About now presents the full supplied biography and award recognition, a responsi
 | `services.html` | About equivalent |
 | `single-service.html` | About equivalent |
 | `projects.html` | Selected work |
-| `single-projects.html` | Authorization study equivalent |
+| `single-projects.html` | Enterprise AI assistant profile equivalent |
 | `team.html` | About equivalent |
 | `team-single.html` | About equivalent |
 | `blog.html` | Selected work equivalent |
-| `blog-details.html` | Authorization study equivalent |
+| `blog-details.html` | Enterprise AI assistant profile equivalent |
 | `faq.html` | About and disclosures equivalent |
 | `pricing.html` | About equivalent |
 | `shop.html` | Selected work equivalent |
-| `shop-details.html` | Tool-authority study equivalent |
+| `shop-details.html` | Multi-provider AI conversation profile equivalent |
 | `contact.html` | Supplied GitHub contact route |
 | `thank-you.html` | Contact equivalent; no message submission claimed |
+
+| Additional route | Current purpose |
+|---|---|
+| `work/enterprise-ai-assistant.html` | Enterprise AI assistant security focus |
+| `work/self-hosted-ai-chat.html` | Self-hosted AI chat security focus |
+| `work/private-ai-knowledge.html` | Private AI knowledge security focus |
+| `work/multi-provider-ai-conversation.html` | Multi-provider AI conversation security focus |
+| `work/authorization.html` | Noindex enterprise assistant equivalent |
+| `work/retrieval-permissions.html` | Noindex private knowledge equivalent |
+| `work/tool-authorization.html` | Noindex multi-provider conversation equivalent |
 
 ## Verification boundary
 

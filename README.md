@@ -4,15 +4,15 @@ A static portfolio for Ahmed Amhdour’s AI application and product security dir
 
 The opening homepage section presents Ahmed Amhdour’s full name and a personal introduction covering his AI security role, sensitive-data protection, authorization and agent security boundaries. Header and footer branding use the same full name. The opening section uses professional focus language without describing learning or studying.
 
-The public site contains **Home, Selected Work, About and Contact**, with three generic study overviews. Product identities, named study dependencies, research inputs, detailed learning plans and research downloads are excluded from the current source and build output. Required asset notices remain intact.
+The public site contains **Home, Selected Work, About and Contact**, with four generic AI platform profiles. Product identities, named study dependencies, research inputs, detailed learning plans and research downloads are excluded from the current source and build output. Required asset notices remain intact.
 
 ## Content and evidence
 
-The selected entries cover object authorization, retrieval permissions and tool authority. Each is explicitly a **Planned study** with execution and runtime results pending. No completed assessment, product finding, customer engagement or production experience is claimed.
+Selected Work uses the same four platform profiles as About: enterprise AI assistants, self-hosted AI chat, private AI knowledge workspaces, and multi-provider AI conversation platforms. Cards include concise summaries, five security-focus tags and platform filters. Each profile links to a detail page with its platform context, the full supplied security scope and links back to About. These profiles describe security focus and contain no assessment results or claims of completed engagements.
 
 About contains Ahmed’s supplied biography, GITEX AFRICA 2026 Rising Star (Individual) award statement, four generic AI-system project profiles and full security engineering approach. The homepage has a short professional About summary and award line, without learning or studying language. The portrait, award-presentation photo and certificate/trophy photo are supplied originals, copied without pixel changes; the jury screenshot is not published. Photo links open the full original image.
 
-The original template’s 18 routes remain available as generic portfolio equivalents. The alternative slider and static video-fallback routes, mobile navigation, sticky header, filtering, carousel, disclosures, scroll transitions and footer remain supported.
+The original template’s 18 routes remain available as generic portfolio equivalents. The three previous project URLs remain as noindex equivalents of the matching platform profiles. The alternative slider and static video-fallback routes, mobile navigation, sticky header, filtering, carousel, disclosures, scroll transitions and footer remain supported.
 
 ## Build and verify
 
@@ -30,7 +30,7 @@ The preview uses port 8765 unless `PORT` is set. Generated output is `public` an
 
 | Path | Purpose |
 |---|---|
-| `data/portfolio.json` | Public profile, full About text, photo descriptions and three generic planned studies |
+| `data/portfolio.json` | Public profile, full About text, photo descriptions and metadata for the four selected projects |
 | `src/layout.html` | Shared static shell and four-item navigation |
 | `scripts/build.mjs` | Static generator and explicit public asset allowlist |
 | `scripts/check-content.mjs` | Disclosure, artifact, link and evidence-status checks |
@@ -41,11 +41,11 @@ The preview uses port 8765 unless `PORT` is set. Generated output is `public` an
 
 ## Verification
 
-The production build and content checks pass for 22 HTML pages and 18 assets, including three original JPEG photos. Content verification checks all 18 supplied About paragraphs, four project profiles, twelve focus areas and eight methodology steps. Static validation checks 763 link/asset references. Local HTTP validation checks 22 pages + 18 assets + robots.txt = 41 nonempty HTTP 200 responses, all carrying the intended security headers; the photos use `image/jpeg`. A disclosure audit compares the output with all 143 former study-project identities; none appear in the published content or project links. Obsolete encoded staging payloads are removed from the current source.
+The production build and content checks pass for 26 HTML pages and 18 assets, including three original JPEG photos. Content verification checks all 18 supplied About paragraphs, the four matching Selected Work profiles on six listing pages, five focus tags per project, twelve approach focus areas, eight methodology steps and three legacy project URLs. Static validation checks 917 link/asset references. Local HTTP validation checks 26 pages + 18 assets + robots.txt = 45 nonempty HTTP 200 responses, all carrying the intended security headers; the photos use `image/jpeg`. A disclosure audit compares the output with all 143 former study-project identities; none appear in the published content or project links. Obsolete encoded staging payloads are removed from the current source.
 
 ## Publishing
 
-Vercel build configuration uses `npm run build:production` and output `public`. Source is published on GitHub `main`. The repository-linked project is `myportfolio` under `amhdour1s-projects`. GitHub reports a successful Vercel deployment for content revision `676aeb0ab060262de32346a066188c32415d2fc2`; its [deployment record](https://vercel.com/amhdour1s-projects/myportfolio/DnortcESrNN1KmcvkXvqmysvUUu4) is linked from the GitHub commit status. Project management access still returns 403 and requires reauthentication to that scope. The production origin, deployment target and live browser behavior remain unverified.
+Vercel build configuration uses `npm run build:production` and output `public`. Source is published on GitHub `main`. The repository-linked project is `myportfolio` under `amhdour1s-projects`. GitHub reported a successful Vercel deployment for preceding content revision `3c437274ef03fd51e748221241cd4af3522758c2`; its [deployment record](https://vercel.com/amhdour1s-projects/myportfolio/FQJhH933VjDoAnoKSKgNYMKVVBEV) is linked from the GitHub commit status. New revisions are checked through the repository-linked deployment status. Project management access still returns 403 and requires reauthentication to that scope. The production origin, deployment target and live browser behavior remain unverified.
 
 Set `productionUrl` only after verifying the actual HTTPS origin, then rebuild to generate canonical metadata and the sitemap. Duplicate template routes are noindex and point to the corresponding primary page when an origin is available.
 

@@ -4,7 +4,8 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const directory=path.join(root,'public');
 const errors=[];
-const pages=JSON.parse(await fs.readFile(path.join(root,'docs/build-manifest.json'),'utf8')).pages;
+const manifest=JSON.parse(await fs.readFile(path.join(root,'docs/build-manifest.json'),'utf8'));
+const pages=manifest.pages;
 let linkCount=0;
 for(const file of pages) {
   const html=await fs.readFile(path.join(directory,file),'utf8');
@@ -33,7 +34,7 @@ for(const file of pages) {
     if(match[1].includes('target="_blank"')&&!match[1].includes('noopener noreferrer'))errors.push(`${file}: external link lacks protection`);
   }
 }
-const report={result:errors.length?'fail':'pass',staticPages:pages.length,linksAndAssetsChecked:linkCount,selectedStudies:3,primaryNavigationItems:4,errors,browserVerification:'unverified',productionVerification:'not established by static checks; see README for deployment status'};
+const report={result:errors.length?'fail':'pass',staticPages:pages.length,linksAndAssetsChecked:linkCount,selectedProjects:manifest.selectedProjects.length,primaryNavigationItems:4,errors,browserVerification:'unverified',productionVerification:'not established by static checks; see README for deployment status'};
 await fs.writeFile(path.join(root,'docs/static-verification.json'),JSON.stringify(report,null,2)+'\n');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
 console.log(`Static checks passed: ${pages.length} pages and ${linkCount} link/asset references.`);

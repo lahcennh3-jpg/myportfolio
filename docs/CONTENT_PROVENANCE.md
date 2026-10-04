@@ -11,12 +11,12 @@ The supplied career brief defines Ahmed’s name, direction, GitHub destination 
 | Award | User-supplied GITEX AFRICA 2026 Rising Star (Individual) statement; supplied presentation and certificate/trophy photos show that recognition |
 | Photos | Three supplied JPEG originals, copied byte-for-byte; portrait displayed with CSS framing and award photos fully contained, each linked to its original image |
 | Broad focus areas | Identity/object access, retrieval permissions and tool authority |
-| Three selected study descriptions | Generic proposed scopes, controls and tests; planned status retained |
-| Study result fields | Execution and runtime results remain pending |
+| Selected Work | Four generic platform profiles derived from the About descriptions, with short summaries and five security-focus tags each |
+| Project detail pages | Platform context adapted from the supplied description, the full security-focus paragraph, and links to the matching About profile and methodology |
 | Contact | Supplied public GitHub profile |
 | Design | Adaptation of the supplied HTML template and retained local assets |
 
-No product or study-project identity, research register, source pin, recipe, assessment packet, private working plan or research download is included in the current publication. The website makes no claim of completed assessments, confirmed vulnerabilities, customers, employment or production operating experience. Required third-party notices are retained with the asset files.
+No named study-project identity, research register, source pin, recipe, assessment packet, private working plan or research download is included in the current publication. The project profiles describe scope and security focus; they make no claim of completed assessments, confirmed vulnerabilities, customers, employment or production operating experience. Required third-party notices are retained with the asset files.
 
 Website implementation checks establish content scope, static routes, artifact availability and intended headers. They do not establish independent security competence or browser/production verification.
 

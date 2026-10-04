@@ -9,18 +9,40 @@
   ],
   "aboutProjects": 4,
   "aboutPhotos": 3,
-  "selectedStudies": [
+  "selectedProjects": [
     {
-      "slug": "authorization",
-      "status": "Planned study"
+      "slug": "enterprise-ai-assistant",
+      "title": "Enterprise AI Assistant Platform",
+      "presentation": "Security focus"
     },
     {
-      "slug": "retrieval-permissions",
-      "status": "Planned study"
+      "slug": "self-hosted-ai-chat",
+      "title": "Self-Hosted AI Chat Platform",
+      "presentation": "Security focus"
     },
     {
-      "slug": "tool-authorization",
-      "status": "Planned study"
+      "slug": "private-ai-knowledge",
+      "title": "Private AI Knowledge Workspace",
+      "presentation": "Security focus"
+    },
+    {
+      "slug": "multi-provider-ai-conversation",
+      "title": "Multi-Provider AI Conversation Platform",
+      "presentation": "Security focus"
+    }
+  ],
+  "legacyProjectRoutes": [
+    {
+      "file": "work/authorization.html",
+      "target": "work/enterprise-ai-assistant.html"
+    },
+    {
+      "file": "work/retrieval-permissions.html",
+      "target": "work/private-ai-knowledge.html"
+    },
+    {
+      "file": "work/tool-authorization.html",
+      "target": "work/multi-provider-ai-conversation.html"
     }
   ],
   "researchDownloads": false,
@@ -50,6 +72,10 @@
     "about.html",
     "contact.html",
     "credits.html",
+    "work/enterprise-ai-assistant.html",
+    "work/self-hosted-ai-chat.html",
+    "work/private-ai-knowledge.html",
+    "work/multi-provider-ai-conversation.html",
     "work/authorization.html",
     "work/retrieval-permissions.html",
     "work/tool-authorization.html",
@@ -73,9 +99,10 @@
     "projects.html",
     "about.html",
     "contact.html",
-    "work/authorization.html",
-    "work/retrieval-permissions.html",
-    "work/tool-authorization.html"
+    "work/enterprise-ai-assistant.html",
+    "work/self-hosted-ai-chat.html",
+    "work/private-ai-knowledge.html",
+    "work/multi-provider-ai-conversation.html"
   ],
   "productionBlockers": []
 }

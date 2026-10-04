@@ -28,50 +28,6 @@
       "summary": "Bounding tool actions and delegated authority."
     }
   ],
-  "studies": [
-    {
-      "slug": "authorization",
-      "title": "Identity & object authorization",
-      "category": "application",
-      "summary": "A study design for ownership checks and access revocation.",
-      "status": "Planned study",
-      "problem": "An application must decide who can access an object and whether that access is still valid.",
-      "boundary": "The authenticated caller, the requested object and the service responsible for authorizing access.",
-      "scope": "Synthetic users and objects in a controlled application environment.",
-      "approach": "Compare permitted and denied requests, then repeat the checks after an access change.",
-      "mitigation": "Place current authorization checks at the service that owns the protected resource.",
-      "result": "Execution and runtime results remain pending.",
-      "limitations": "This is a proposed study. It establishes no product finding, completed assessment or production experience."
-    },
-    {
-      "slug": "retrieval-permissions",
-      "title": "Permissions across retrieval",
-      "category": "retrieval",
-      "summary": "A study design for keeping retrieved information within the caller’s access.",
-      "status": "Planned study",
-      "problem": "A search or generated answer should use only information the caller is currently allowed to access.",
-      "boundary": "The caller’s permissions, the retrieval decision and the information included in an answer.",
-      "scope": "Synthetic documents and permission changes in a controlled retrieval environment.",
-      "approach": "Compare authorized and unauthorized retrieval, including checks after access is revoked.",
-      "mitigation": "Enforce permissions at retrieval and verify the identity and policy used by the responsible service.",
-      "result": "Execution and runtime results remain pending.",
-      "limitations": "This design does not establish a completed security assessment or verified behavior in a deployed product."
-    },
-    {
-      "slug": "tool-authorization",
-      "title": "Authorization for tool actions",
-      "category": "actions",
-      "summary": "A study design for keeping actions within an explicit grant of authority.",
-      "status": "Planned study",
-      "problem": "A suggested action must stay within the permissions and approval granted for its actual effect.",
-      "boundary": "The caller, delegated authority, approved action and service performing the effect.",
-      "scope": "Synthetic actions and approvals in a controlled application environment.",
-      "approach": "Compare permitted and denied actions, checking that approval covers the intended effect and that repeated requests are handled safely.",
-      "mitigation": "Validate current authority and action scope at the effect service; record the outcome without unnecessary sensitive content.",
-      "result": "Execution and runtime results remain pending.",
-      "limitations": "This is a planned investigation. It establishes no protocol implementation, confirmed vulnerability or professional engagement."
-    }
-  ],
   "fullName": "Ahmed Amhdour",
   "about": {
     "biography": [
@@ -86,6 +42,16 @@
         "paragraphs": [
           "I study the security of enterprise AI assistants that connect employees with organizational knowledge, language models, retrieval systems, and agent tools.",
           "My work focuses on authentication and authorization, private conversations and files, secure document ingestion, RAG permissions, prompt injection, agent actions, MCP-style integrations, secrets, sandboxing, logging, supply-chain security, incident response, and secure deployment."
+        ],
+        "slug": "enterprise-ai-assistant",
+        "category": "enterprise",
+        "summary": "Security focus on identity, RAG permissions, prompt injection, and agent tools in enterprise AI assistants.",
+        "focusAreas": [
+          "Authentication & Authorization",
+          "RAG Permissions",
+          "Prompt Injection",
+          "Agent & Tool Security",
+          "Secure Deployment"
         ]
       },
       {
@@ -93,6 +59,16 @@
         "paragraphs": [
           "I study self-hosted AI applications that provide users with access to local and remote language models.",
           "My security focus includes session security, user isolation, model-provider configuration, API-key protection, file uploads, tool permissions, prompt injection, sensitive-data exposure, logging, and deployment hardening."
+        ],
+        "slug": "self-hosted-ai-chat",
+        "category": "chat",
+        "summary": "Security focus on sessions, user isolation, API keys, uploads, and deployment hardening in self-hosted AI chat applications.",
+        "focusAreas": [
+          "Session Security",
+          "User Isolation",
+          "API-Key Protection",
+          "Upload Security",
+          "Deployment Hardening"
         ]
       },
       {
@@ -100,6 +76,16 @@
         "paragraphs": [
           "I study AI knowledge systems that ingest private documents and use retrieval-augmented generation to answer questions.",
           "My focus includes document ownership, ingestion security, retrieval authorization, vector-search permissions, embedding privacy, indirect prompt injection, permission revocation, sensitive-data handling, retention, deletion, and secure multi-user access."
+        ],
+        "slug": "private-ai-knowledge",
+        "category": "knowledge",
+        "summary": "Security focus on document ownership, ingestion, retrieval authorization, privacy, and access revocation in private AI knowledge systems.",
+        "focusAreas": [
+          "Document Ownership",
+          "Retrieval Authorization",
+          "Embedding Privacy",
+          "Access Revocation",
+          "Retention & Deletion"
         ]
       },
       {
@@ -107,6 +93,16 @@
         "paragraphs": [
           "I study AI platforms that connect users with multiple models, providers, tools, and external services through a common application.",
           "My security work focuses on identity, API authorization, provider credentials, conversation privacy, uploaded content, model routing, tool permissions, external integrations, logging, output handling, and preventing untrusted AI-generated content from becoming trusted authority."
+        ],
+        "slug": "multi-provider-ai-conversation",
+        "category": "integrations",
+        "summary": "Security focus on provider credentials, conversation privacy, model routing, tool permissions, and untrusted output across AI integrations.",
+        "focusAreas": [
+          "Provider Credentials",
+          "Conversation Privacy",
+          "Model Routing",
+          "Tool Permissions",
+          "Output Handling"
         ]
       }
     ],
