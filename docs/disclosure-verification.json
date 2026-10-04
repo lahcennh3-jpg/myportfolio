@@ -1,0 +1,10 @@
+{
+  "result": "pass",
+  "formerProjectIdentitiesChecked": 143,
+  "currentSourceFilesChecked": 37,
+  "currentSourceViolations": [],
+  "publicHtmlNameAudit": "pass",
+  "publicArtifactProjectUrlAudit": "pass",
+  "obsoleteStagingPayloadFilesRemoved": 2,
+  "repositoryHistory": "retained; earlier versions are outside this current-source audit"
+}

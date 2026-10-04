@@ -1,8 +1,8 @@
 {
   "result": "pass",
-  "staticPagesChecked": 257,
-  "assetFilesChecked": 16,
-  "totalResponses": 274,
+  "staticPagesChecked": 22,
+  "assetFilesChecked": 15,
+  "totalResponses": 38,
   "non200OrEmptyResponses": [],
   "headersPresentOnAllResponses": true,
   "browserRendering": "unverified",

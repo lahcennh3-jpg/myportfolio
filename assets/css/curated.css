@@ -1,0 +1,10 @@
+/* Curated portfolio components. */
+.curated-work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.curated-work-grid .case-card{min-width:0}
+.curated-work-grid .case-card h3{font-size:1.5rem;line-height:1.25}
+.curated-work-grid .card-link{margin-top:auto;align-self:flex-start}
+.curated-focus-grid{grid-template-columns:1fr}
+.curated-focus-grid .sr-box-about p{max-width:none}
+.case-field p,.detail-sidebar,.contact-block a{overflow-wrap:anywhere}
+@media(max-width:1199px){.curated-work-grid{grid-template-columns:1fr}.curated-work-grid .case-card header{margin-bottom:24px}.curated-work-grid .case-card h3{font-size:1.7rem}}
+@media(max-width:767px){.curated-work-grid .case-card h3{font-size:1.5rem}}

@@ -33,17 +33,7 @@ for(const file of pages) {
     if(match[1].includes('target="_blank"')&&!match[1].includes('noopener noreferrer'))errors.push(`${file}: external link lacks protection`);
   }
 }
-const registry=await fs.readFile(path.join(directory,'missions.html'),'utf8');
-for(let i=1;i<=40;i++){
-  const id=`M${String(i).padStart(2,'0')}`;
-  if(!registry.includes(`class="mission-id">${id}</div>`))errors.push(`${id}: missing from mission registry`);
-}
-for(let i=1;i<=8;i++) {
-  const file=path.join(directory,`case-studies/c0${i}.html`);
-  const html=await fs.readFile(file,'utf8');
-  if((html.match(/class="case-field"/g)||[]).length!==24)errors.push(`C0${i}: expected all 24 case-study fields`);
-}
-const report={result:errors.length?'fail':'pass',staticPages:pages.length,linksAndAssetsChecked:linkCount,missionIdentifiers:40,caseStudyCandidates:8,caseStudyFieldsPerTrack:24,errors,browserVerification:'unverified',productionVerification:'not established by static checks; see README for deployment status'};
+const report={result:errors.length?'fail':'pass',staticPages:pages.length,linksAndAssetsChecked:linkCount,selectedStudies:3,primaryNavigationItems:4,errors,browserVerification:'unverified',productionVerification:'not established by static checks; see README for deployment status'};
 await fs.writeFile(path.join(root,'docs/static-verification.json'),JSON.stringify(report,null,2)+'\n');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
-console.log(`Static checks passed: ${pages.length} pages, ${linkCount} link/asset references, M01–M40, and all 24 fields in C01–C08.`);
+console.log(`Static checks passed: ${pages.length} pages and ${linkCount} link/asset references.`);

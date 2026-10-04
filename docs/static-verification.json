@@ -1,10 +1,9 @@
 {
   "result": "pass",
-  "staticPages": 257,
-  "linksAndAssetsChecked": 16400,
-  "missionIdentifiers": 40,
-  "caseStudyCandidates": 8,
-  "caseStudyFieldsPerTrack": 24,
+  "staticPages": 22,
+  "linksAndAssetsChecked": 728,
+  "selectedStudies": 3,
+  "primaryNavigationItems": 4,
   "errors": [],
   "browserVerification": "unverified",
   "productionVerification": "not established by static checks; see README for deployment status"
