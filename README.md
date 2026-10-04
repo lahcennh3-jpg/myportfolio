@@ -1,86 +1,75 @@
 # Ahmed — AI Security Engineering Portfolio
 
-A static portfolio adapted from the supplied **WAAN Business Consulting HTML template by zcube**, for Ahmed’s **AI Security Engineer / AI Application & Product Security Engineer — 2026+** career direction.
+A static portfolio for Ahmed’s **AI Security Engineer / AI Application & Product Security Engineer — 2026+** direction, adapted from the supplied **WAAN Business Consulting HTML template by zcube**.
 
-**Current state: review draft. No production deployment has been completed.**
+The complete supplied Onyx catalog is imported. Source publication is ready; Vercel production deployment and browser verification remain outstanding because the connected Vercel account returns **403 Forbidden** for the existing `mywebsite` project under **`amhdour1s-projects`**.
 
-The supplied website brief and template are available. The required `onyx_security_mission_catalog_2026-09-30_final (1).md` was not included in the available attachments. The connected Vercel tools returned no accessible teams or projects. Individual mission titles, execution evidence, verified supporting labs, and the full ecosystem register cannot yet be confirmed.
+## Included content
 
-## What the draft contains
+- WAAN’s static architecture, Bootstrap grid, hero variants, spacing, responsive theme, mobile navigation, sticky header, preloader, filtering, carousel, timeline, scroll transitions and footer.
+- **257 HTML pages**, including every original WAAN route and concise Home, About, Work, Missions, Method and Contact navigation.
+- **M01–M40**: all 640 A–P source fields, source references, edition/resource gates, authoritative oracles, transfer routes and evidence ledgers.
+- **C01–C08**: exact requested mission allocations and all 24 case-study fields per candidate.
+- **141 original ecosystem inputs plus E001 and E002**, with separate identity counts, immutable source snapshots, canonical redirects, planned study depths and policy-review status.
+- **Four catalog-recorded supporting recipe checks**, with exact Python source, verified script hashes, captured output, execution surface and limitations.
+- All **20 complete catalog sections**, including adapter build sheets, assessment packets, engagement scope templates, evaluator calibration, capstone design and delayed reassessment plans. The original Markdown is also published unchanged.
 
-- The adapted WAAN hero, grid and spacing system, responsive theme, mobile menu, sticky navigation, gallery filtering, evidence carousel, practice timeline, contact layout, scroll transitions, and footer.
-- Home, About, Security Focus, Onyx Lab, case-study tracks, mission registry, ecosystem, methodology, evidence, roadmap, research, supporting labs, contact, and credits.
-- All **M01–M40 identifiers** with detail pages. **Zero catalog mission records have been imported.** Missing titles and experiment details remain explicitly pending.
-- All **C01–C08 portfolio candidates**, allocated as specified in the brief. Each preserves the requested **24-field case-study format**. Design questions and proposed controls are labelled as plans; no execution results are invented.
-- The ten ecosystem names specified in the brief. The complete catalog project register is still required.
-- No invented employer, customer, testimonial, years of experience, skill percentages, email address, telephone number, LinkedIn account, vulnerability, or professional assessment.
+No employer, client, contact details, testimonial, vulnerability, skill percentage, mission execution or professional operating experience is invented. Ahmed’s supplied GitHub profile is the contact route.
 
-## Local development
+## Build and verify
 
-Node.js is sufficient. There are no package dependencies to install.
-
-```bash
-npm run build
-npm run check
-npm run preview
-```
-
-The local static preview prints its address (port `8765` by default). Stop it with `Ctrl+C`. Set `PORT` to change the port.
+Node.js is sufficient for the site; there are no package dependencies to install.
 
 ```bash
 npm run build:production
+npm run check:content
+npm run check
+npm run check:http
+npm run preview
 ```
 
-The production command intentionally refuses to publish until catalog import and content verification are complete. Missing evidence must be resolved by importing the source, not by bypassing the gate.
+The preview prints its address (port `8765` by default); set `PORT` to change it. Stop with `Ctrl+C`. `npm run build` also supports review builds. The production command requires complete mission records and verified source content; the publication flag does not upgrade any security evidence.
 
-## Directory structure
+## Source and evidence
 
-```text
-assets/css/            Original WAAN grid/theme/responsive CSS and portfolio overrides
-assets/js/vendor/      Retained jQuery, MeanMenu, Slick, GSAP, and ScrollTrigger files
-assets/js/portfolio.js Accessible interaction adaptation and filtering
-data/portfolio.json    Source state, focus clusters, tracks, roadmap, ecosystem, evidence
-src/layout.html       WAAN-derived static shell, shared navigation, metadata, footer
-scripts/build.mjs     Escaped, data-driven static page generation
-scripts/check.mjs     Source, links, headings, IDs, mission and case-study checks
-scripts/serve.mjs     Local preview with the intended deployment security headers
-docs/                 Inventory, adaptation checklist, provenance, verification
-public/               Generated static output (not committed)
-vercel.json           Static output and deployment headers
-```
+The attached catalog’s SHA-256 is:
 
-## Evidence principles
+`f00c7011f31f2d0d31e05569907bf42e25f3bec59e9b4359e2eba5a36b28d224`
 
-`SRC` denotes a source observation; `DOC` a documented behavior; `INF` a stated inference; `PLAN` a proposed experiment; and `RUN` observed execution within a named surface. Supporting recipe execution, a synthetic lab, native/runtime verification, independent assessment, and professional operating experience are separate gates.
+The Onyx mission research baseline remains **`e7240a64ed06fff6f665fdde2bd90c4a3052d004`**. The ecosystem register’s later P001 snapshot is distinct. Catalog dates describe historical observations, not fresh upstream verification.
 
-Currently the case-study tracks are **PLAN / Case Study Candidate**, based on the supplied brief. Individual mission evidence classifications remain **unknown / catalog pending**, rather than automatically becoming `PLAN` or `RUN`. No supporting lab is labelled executed or verified.
+`SRC` means a source observation, `DOC` documented behavior, `INF` a stated inference, `PLAN` a planned experiment and `RUN` an observed execution within a named surface. All mission experiments are **NOT RUN**, independent learner assessment **NOT ASSESSED**, and professional operating evidence **UNCONFIRMED**. The candidates remain **PLAN**.
 
-## Updating content and statuses
+`RUN` is confined to L01–L04 in the supplied catalog. L01–L03 are added fixtures; L04 is a small trained synthetic model with one fixed perturbation construction. Their runs are **not attributed to Ahmed’s independent work**, and do not verify native Onyx, MCP/OAuth, enterprise permission sync, general model robustness or privacy. The website checks preserve source and outputs; they do not rerun the recipes.
 
-1. Read and reconcile the entire original catalog, including all M01–M40 entries, portfolio allocations, supporting recipes, assessment sections, transfer relationships, capstone, and project register.
-2. Populate `missions` in `data/portfolio.json` with all 40 exact IDs, source-backed titles, problems, surfaces, responsibilities, deliverables, domains, status, classification, and `sourceRefs`.
-3. Keep source observations, plans, inferences, and runtime observations distinct. Record the actual catalog revision in `source.catalogRevision` and mark `catalogAvailable` only after the source has been read.
-4. Populate `supportingLabs` only with observed execution records. A `RUN` record must include `observedExecution`, `executionSurface`, and `sourceRefs`, with narrow limitations.
-5. Reconcile the eight tracks and the full ecosystem register with the catalog. The current case-study pages are design candidates; completed case-study evidence needs to be integrated into the generator before upgrading their status.
-6. Run the checks and complete browser QA. Set `publishReady` only after content verification. Do not treat this Boolean as substitute evidence.
-7. Set `productionUrl` to the verified HTTPS origin when available, then rebuild for canonical metadata and sitemap generation.
+See [content provenance](docs/CONTENT_PROVENANCE.md), [template adaptation](docs/TEMPLATE_ADAPTATION.md) and [third-party notices](docs/THIRD_PARTY_NOTICES.md). The website implementation and presentation were created with AI assistance from Ahmed’s supplied brief and catalog.
 
-## Vercel deployment
+## Maintaining the site
 
-Use **Other / static output**, with `npm run build:production` and `public` as the output directory. `vercel.json` records these settings. Link the project to `lahcennh3-jpg/myportfolio` and set the production branch to `main` once the completed source is ready to merge.
+| Path | Purpose |
+|---|---|
+| `assets/` | Retained WAAN/vendor files and portfolio interaction/style adaptations |
+| `data/portfolio.json` | Structured records and publication state |
+| `data/onyx-security-catalog.md` | Exact attached source, published unchanged |
+| `src/layout.html` | Shared WAAN-derived shell and metadata |
+| `src/catalog.mjs` | Safe source rendering and evidence-aware content components |
+| `scripts/import-catalog.py` | Reproducible catalog import; maintenance only |
+| `scripts/build.mjs` | Dependency-free static generator |
+| `scripts/check-content.mjs` | Exact source fields, allocations, identity, scope and hash checks |
+| `scripts/check.mjs` | HTML, links, fragments, assets and content checks |
+| `scripts/check-http.mjs` | Local HTTP integration and security-header checks |
+| `docs/` | Provenance, template inventory, adaptation and verification reports |
+| `public/` | Generated output, excluded from Git |
+| `vercel.json` | Static build/output configuration and response headers |
 
-The draft is kept on `draft/ai-security-portfolio` while source import is blocked. The initial `main` branch contains this truthful project README; it is not a finished deployed website.
+To reimport the same source, run `python3 scripts/import-catalog.py data/onyx-security-catalog.md`. Import resets `publishReady` to false so content changes require review. A different catalog edition needs updated provenance and verification expectations; do not relabel or rewrite historical execution records. Set `productionUrl` only to the verified HTTPS origin, then rebuild to generate canonical metadata and the sitemap. Duplicate template/reference routes remain accessible with canonical targets and noindex metadata.
 
-An accessible Vercel team is required before the repository can be linked with the connected Vercel tool. Team/project creation, automatic deployment, production URL, live asset loading, and live navigation have **not** been verified.
+## Verification and deployment
 
-## Verification
+The exact-content check verifies all **640 mission fields**, **40 transfer routes**, **eight allocations**, **143 ecosystem records**, **four recipe hashes** and **20 catalog sections**. Static validation passes for **257 pages and 16,400 link/asset references**. Local HTTP validation passes for **257 pages + 16 assets + robots.txt = 274 nonempty HTTP 200 responses**, all carrying the intended security headers. Reports are in `docs/content-verification.json`, `docs/static-verification.json` and `docs/http-verification.json`.
 
-Static compilation and the authored checks pass for **86 HTML pages**, **3,277 link/asset references**, **40 mission identifiers**, and **24 fields in each of eight candidate tracks**. The generated report is `docs/static-verification.json`.
+Local checks establish content preservation, route/asset availability and intended headers. Browser layout, keyboard interactions, filters, motion, console behavior, and the requested 320, 375, 768, 1024, 1440 and 1920 pixel viewports remain **unverified**. The cloud browser rejected the local preview, so those checks await a reachable HTTPS deployment.
 
-The cloud browser could not open the local HTTP preview; direct local-file navigation was also rejected by its URL policy. Browser visual QA, the six requested viewport checks, actual CSS layout, browser console, and live production checks remain **unverified**. The presence of responsive CSS does not establish that those checks passed.
+Vercel settings are **Other / static**, `npm run build:production`, output `public`, production branch `main`. The existing project is `mywebsite` (`prj_ojhh8OXYD2gMdPLspbetlzTk6fHi`), team `team_wjCz17vPO6RUSB6mvpE0vDnr`. Project access returns 403 and explicitly requires reauthentication to `amhdour1s-projects`. No production URL or successful deployment is asserted.
 
-## Attribution and licenses
-
-The supplied archive’s documentation identifies WAAN and zcube. Copyright/license notices remain in the retained vendor files. No blanket MIT license is asserted for the template or dependencies. Template demonstration images and logos are not used as personal or project evidence. The bundled member-only SplitText plugin is excluded; its intended reveal effect is adapted through GSAP and CSS.
-
-See `docs/TEMPLATE_ADAPTATION.md`, `docs/TEMPLATE_INVENTORY.md`, and `docs/THIRD_PARTY_NOTICES.md` for the preservation and attribution details.
+The bootstrap files already present on GitHub main are preserved unchanged. The previous main README is retained in [the history record](docs/history/README-before-catalog-import.md). Template portraits, demo logos and the member-only SplitText distribution are excluded; GSAP/CSS preserves the intended reveal treatment. Vendor copyright/license notices remain intact; no blanket MIT license is asserted.

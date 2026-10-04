@@ -1,0 +1,21 @@
+{
+  "result": "pass",
+  "catalogSha256": "f00c7011f31f2d0d31e05569907bf42e25f3bec59e9b4359e2eba5a36b28d224",
+  "missionRecords": 40,
+  "sourceFieldsVerified": 640,
+  "transferRoutes": 40,
+  "caseStudyCandidates": 8,
+  "caseStudyFieldsPerTrack": 24,
+  "originalEcosystemInputs": 141,
+  "additionalComponentOwners": 2,
+  "plannedStudyDepths": {
+    "D": 20,
+    "W": 39,
+    "R": 82
+  },
+  "recordedRecipeHashesVerified": 4,
+  "catalogSections": 20,
+  "recipeExecution": "not rerun; recorded source and output preservation checked",
+  "learnerAndNativeEvidence": "not upgraded",
+  "errors": []
+}

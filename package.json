@@ -1,0 +1,14 @@
+{
+  "name": "ahmed-ai-security-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-aware static portfolio adapted from the supplied WAAN template.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:production": "node scripts/build.mjs --production",
+    "check": "node scripts/check.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:http": "node scripts/check-http.mjs",
+    "preview": "node scripts/serve.mjs"
+  }
+}
