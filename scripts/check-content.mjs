@@ -35,7 +35,9 @@ for(const photo of data.about.photos){
   expect(manifest.assets.includes('assets/'+photo.src),`${photo.src}: the photo is not allowlisted.`);
 }
 const homeHtml=await fs.readFile(path.join(directory,'index.html'),'utf8');
-for(const copy of data.about.biography.slice(0,2))expect(homeHtml.includes(rich(copy)),'The homepage About preview omitted the supplied introduction or award.');
+const homeAbout=homeHtml.match(/<section\b[^>]*id="home-about"[^>]*>([\s\S]*?)<\/section>/)?.[1]||'';
+for(const copy of data.about.homeSummary)expect(homeAbout.includes(rich(copy)),'The short homepage About omitted the professional summary or award.');
+expect(!/\bstud(?:y|ies|ying)\b|\blearning\b|\bstudent\b/i.test(homeAbout),'The homepage About describes learning or studying.');
 for(const study of data.studies){
   expect(study.status==='Planned study' && study.result==='Execution and runtime results remain pending.',`${study.slug}: evidence status was promoted.`);
   const html=await fs.readFile(path.join(directory,'work',study.slug+'.html'),'utf8');

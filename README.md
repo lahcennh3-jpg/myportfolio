@@ -8,7 +8,7 @@ The public site contains **Home, Selected Work, About and Contact**, with three 
 
 The selected entries cover object authorization, retrieval permissions and tool authority. Each is explicitly a **Planned study** with execution and runtime results pending. No completed assessment, product finding, customer engagement or production experience is claimed.
 
-About contains Ahmed’s supplied biography, GITEX AFRICA 2026 Rising Star (Individual) award statement, four generic AI-system project profiles and full security engineering approach. The homepage previews the introduction and recognition. The portrait, award-presentation photo and certificate/trophy photo are supplied originals, copied without pixel changes; the jury screenshot is not published. Photo links open the full original image.
+About contains Ahmed’s supplied biography, GITEX AFRICA 2026 Rising Star (Individual) award statement, four generic AI-system project profiles and full security engineering approach. The homepage has a short professional About summary and award line, without learning or studying language. The portrait, award-presentation photo and certificate/trophy photo are supplied originals, copied without pixel changes; the jury screenshot is not published. Photo links open the full original image.
 
 The original template’s 18 routes remain available as generic portfolio equivalents. The alternative slider and static video-fallback routes, mobile navigation, sticky header, filtering, carousel, disclosures, scroll transitions and footer remain supported.
 
