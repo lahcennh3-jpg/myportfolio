@@ -13,7 +13,8 @@ The supplied career brief defines Ahmed’s name, direction, GitHub destination 
 | Broad focus areas | Identity/object access, retrieval permissions and tool authority |
 | Selected Work | Four generic platform profiles derived from the About descriptions, with short summaries and five security-focus tags each |
 | Project detail pages | Platform context adapted from the supplied description, the full security-focus paragraph, and links to the matching About profile and methodology |
-| Contact | Supplied public GitHub profile |
+| Contact | User-supplied name, email and international mobile number, plus the supplied public GitHub profile; phone presentation uses the equivalent +212 dialing format |
+| Message form | Native POST to FormSubmit for the supplied Gmail recipient; external processing disclosed, default provider CAPTCHA retained, first-use email activation and delivery unverified |
 | Design | Adaptation of the supplied HTML template and retained local assets |
 
 No named study-project identity, research register, source pin, recipe, assessment packet, private working plan or research download is included in the current publication. The project profiles describe scope and security focus; they make no claim of completed assessments, confirmed vulnerabilities, customers, employment or production operating experience. Required third-party notices are retained with the asset files.

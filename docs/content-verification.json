@@ -1,6 +1,8 @@
 {
   "result": "pass",
   "primaryPages": 4,
+  "contactFormsChecked": 4,
+  "contactDelivery": "FormSubmit endpoint configured; mailbox activation and delivery unverified",
   "aboutProjectProfiles": 4,
   "suppliedAboutParagraphsChecked": 18,
   "aboutPhotos": 3,
@@ -10,7 +12,7 @@
   "legacyProjectRoutes": 3,
   "publishedPages": 26,
   "publishedAssets": 18,
-  "externalLinksChecked": 72,
+  "externalLinksChecked": 70,
   "publicArtifactAllowlist": "enforced",
   "researchDownloads": false,
   "completedAssessmentClaims": 0,

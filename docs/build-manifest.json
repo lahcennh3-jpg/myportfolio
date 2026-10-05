@@ -7,6 +7,17 @@
     "About",
     "Contact"
   ],
+  "contactForms": {
+    "provider": "FormSubmit",
+    "recipient": "ahmedamhdour@gmail.com",
+    "pages": [
+      "index.html",
+      "index-2.html",
+      "index-3.html",
+      "contact.html"
+    ],
+    "activation": "requires first-submission email confirmation; unverified"
+  },
   "aboutProjects": 4,
   "aboutPhotos": 3,
   "selectedProjects": [

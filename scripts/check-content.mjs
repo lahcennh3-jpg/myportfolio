@@ -10,9 +10,13 @@ const errors=[];
 const expect=(condition,message)=>{if(!condition)errors.push(message);};
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rich=value=>esc(value).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
-const allowedKeys=['name','fullName','role','direction','intro','github','repository','productionUrl','publication','focus','about'];
+const allowedKeys=['name','fullName','role','direction','intro','github','contact','repository','productionUrl','publication','focus','about'];
 expect(Object.keys(data).every(key=>allowedKeys.includes(key)),'Unexpected research input is present in public data.');
 expect(data.publication.ready && data.publication.mode==='curated' && data.publication.researchDownloads===false,'Public disclosure policy changed.');
+expect(data.contact.email==='ahmedamhdour@gmail.com' && data.contact.phone==='00212610374791' && data.contact.phoneUri==='tel:+212610374791' && data.contact.phoneDisplay==='+212 610 374 791','The supplied contact information changed.');
+expect(data.contact.formAction===`https://formsubmit.co/${data.contact.email}`,'Contact submissions must target the supplied email address.');
+const contactPages=['index.html','index-2.html','index-3.html','contact.html'];
+expect(JSON.stringify(manifest.contactForms.pages)===JSON.stringify(contactPages) && manifest.contactForms.recipient===data.contact.email,'The contact form route or recipient is incorrect.');
 const projectSlugs=['enterprise-ai-assistant','self-hosted-ai-chat','private-ai-knowledge','multi-provider-ai-conversation'];
 expect(JSON.stringify(data.about.projects.map(project=>project.slug))===JSON.stringify(projectSlugs),'Selected Work must use the four About project profiles in their supplied order.');
 expect(manifest.selectedProjects.length===4 && manifest.selectedProjects.every(project=>project.presentation==='Security focus'),'Project profiles must describe security focus without claiming completed results.');
@@ -79,16 +83,33 @@ const allowedFiles=new Set([...manifest.pages,...manifest.assets,'robots.txt',..
 for(const file of files)expect(allowedFiles.has(file),`Unexpected published artifact: ${file}`);
 expect(files.length===allowedFiles.size,'A declared public artifact is missing.');
 let checkedExternalLinks=0;
+let contactFormsChecked=0;
 for(const file of manifest.pages){
   const html=await fs.readFile(path.join(directory,file),'utf8');
+  const footer=html.match(/<footer\b[^>]*>([\s\S]*?)<\/footer>/)?.[1]||'';
+  expect(footer.includes(`href="mailto:${data.contact.email}"`) && footer.includes(`href="${data.contact.phoneUri}"`),`${file}: footer contact links are missing.`);
+  const forms=[...html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/g)];
+  expect(forms.length===(contactPages.includes(file)?1:0),`${file}: contact form appears on an unexpected route or is missing.`);
+  for(const [,attributes,body] of forms){
+    contactFormsChecked++;
+    expect(attributes.includes(`action="${data.contact.formAction}"`) && attributes.includes('method="POST"'),`${file}: the native email form endpoint is incorrect.`);
+    expect(attributes.includes('aria-labelledby="contact-form-heading"') && attributes.includes('aria-describedby="contact-form-help contact-form-provider"'),`${file}: the contact form lacks accessible context.`);
+    for(const [field,type] of [['name','text'],['email','email'],['message','textarea']]){
+      const tag=body.match(new RegExp(`<${type==='textarea'?'textarea':'input'}\\b[^>]*name="${field}"[^>]*>`))?.[0]||'';
+      expect(tag.includes(' required') && (type==='textarea'||tag.includes(`type="${type}"`)),`${file}: ${field} must be a required field of the expected type.`);
+      expect(body.includes(`for="contact-${field}"`) && tag.includes(`id="contact-${field}"`),`${file}: ${field} must have an associated label.`);
+    }
+    expect(body.includes('name="_honey"') && !/name="_captcha"[^>]*value="false"/.test(body),`${file}: provider spam protection is missing or disabled.`);
+    expect(html.includes(`href="mailto:${data.contact.email}"`) && html.includes(`href="${data.contact.phoneUri}"`) && html.includes(esc(data.contact.phoneDisplay)),`${file}: direct contact details are incomplete.`);
+  }
   expect(!/href="(?:\.\.\/)*(?:catalog|missions|ecosystem|roadmap|assessment|capstone|supporting-labs)(?:\.html|\/)/i.test(html),`${file}: a research route was reintroduced.`);
   for(const match of html.matchAll(/href="(https:\/\/[^\"]+)"/g)){
     checkedExternalLinks++;
-    expect(match[1]===data.github,`${file}: an unapproved project link was published.`);
+    expect([data.github,'https://formsubmit.co/'].includes(match[1]),`${file}: an unapproved external link was published.`);
   }
   expect(!/\b(?:M\d{2}|P\d{3}|C\d{2}|U\d{2})\b/.test(html),`${file}: a research identifier was published.`);
 }
-const report={result:errors.length?'fail':'pass',primaryPages:4,aboutProjectProfiles:data.about.projects.length,suppliedAboutParagraphsChecked:aboutCopy.length,aboutPhotos:data.about.photos.length,selectedProjectProfiles:manifest.selectedProjects.length,projectListingsChecked:6,focusAreasPerProject:5,legacyProjectRoutes:legacyRoutes.length,publishedPages:manifest.pages.length,publishedAssets:manifest.assets.length,externalLinksChecked:checkedExternalLinks,publicArtifactAllowlist:'enforced',researchDownloads:false,completedAssessmentClaims:0,browserRendering:'unverified',errors};
+const report={result:errors.length?'fail':'pass',primaryPages:4,contactFormsChecked,contactDelivery:'FormSubmit endpoint configured; mailbox activation and delivery unverified',aboutProjectProfiles:data.about.projects.length,suppliedAboutParagraphsChecked:aboutCopy.length,aboutPhotos:data.about.photos.length,selectedProjectProfiles:manifest.selectedProjects.length,projectListingsChecked:6,focusAreasPerProject:5,legacyProjectRoutes:legacyRoutes.length,publishedPages:manifest.pages.length,publishedAssets:manifest.assets.length,externalLinksChecked:checkedExternalLinks,publicArtifactAllowlist:'enforced',researchDownloads:false,completedAssessmentClaims:0,browserRendering:'unverified',errors};
 await fs.writeFile(path.join(root,'docs/content-verification.json'),JSON.stringify(report,null,2)+'\n');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
-console.log(`Content checks passed: four primary pages, four project profiles matching About, ${files.length} allowlisted public artifacts, and ${checkedExternalLinks} approved profile links.`);
+console.log(`Content checks passed: four primary pages, ${contactFormsChecked} configured contact forms, four project profiles matching About, ${files.length} allowlisted public artifacts, and ${checkedExternalLinks} approved external links.`);

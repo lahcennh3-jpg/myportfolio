@@ -14,7 +14,8 @@ async function walk(directory){
 function request(file){return new Promise(resolve=>{
   const req=http.get({hostname:'127.0.0.1',port:8766,path:'/'+file},response=>{
     let bytes=0;response.on('data',chunk=>bytes+=chunk.length);
-    response.on('end',()=>resolve({file,status:response.statusCode,bytes,csp:Boolean(response.headers['content-security-policy']),contentType:response.headers['content-type']}));
+    const policy=response.headers['content-security-policy']||'';
+    response.on('end',()=>resolve({file,status:response.statusCode,bytes,csp:Boolean(policy),contactFormPolicy:policy.includes("form-action 'self' https://formsubmit.co;") && policy.includes("connect-src 'self';"),contentType:response.headers['content-type']}));
   });
   req.setTimeout(4000,()=>req.destroy(new Error('Local HTTP test timed out')));
   req.on('error',error=>resolve({file,error:error.code||error.message}));
@@ -26,8 +27,8 @@ try{
   try{await fs.access(path.join(root,'public/sitemap.xml'));targets.push('sitemap.xml');}catch{}
   const results=[];
   for(let i=0;i<targets.length;i+=8)results.push(...await Promise.all(targets.slice(i,i+8).map(request)));
-  const errors=results.filter(result=>result.status!==200||!result.bytes||!result.csp||(/\.jpe?g$/i.test(result.file)&&result.contentType!=='image/jpeg'));
-  const report={result:errors.length?'fail':'pass',staticPagesChecked:pages.length,assetFilesChecked:assets.length,jpegPhotosChecked:results.filter(result=>/\.jpe?g$/i.test(result.file)).length,totalResponses:results.length,failedResponses:errors,headersPresentOnAllResponses:results.every(r=>r.csp),browserRendering:'unverified',production:'not established by the local HTTP check'};
+  const errors=results.filter(result=>result.status!==200||!result.bytes||!result.csp||!result.contactFormPolicy||(/\.jpe?g$/i.test(result.file)&&result.contentType!=='image/jpeg'));
+  const report={result:errors.length?'fail':'pass',staticPagesChecked:pages.length,assetFilesChecked:assets.length,jpegPhotosChecked:results.filter(result=>/\.jpe?g$/i.test(result.file)).length,totalResponses:results.length,failedResponses:errors,headersPresentOnAllResponses:results.every(r=>r.csp),contactFormPolicyOnAllResponses:results.every(r=>r.contactFormPolicy),browserRendering:'unverified',production:'not established by the local HTTP check'};
   await fs.writeFile(path.join(root,'docs/http-verification.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report));
   if(errors.length)process.exitCode=1;

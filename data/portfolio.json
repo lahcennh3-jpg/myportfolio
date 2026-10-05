@@ -4,6 +4,13 @@
   "direction": "AI Application & Product Security",
   "intro": "I’m Ahmed Amhdour, an AI Security Engineer focused on securing AI applications, RAG systems, and autonomous agents. My focus is protecting sensitive data, enforcing authorization, and keeping agent actions within clear security boundaries.",
   "github": "https://github.com/lahcennh3-jpg",
+  "contact": {
+    "email": "ahmedamhdour@gmail.com",
+    "phone": "00212610374791",
+    "phoneDisplay": "+212 610 374 791",
+    "phoneUri": "tel:+212610374791",
+    "formAction": "https://formsubmit.co/ahmedamhdour@gmail.com"
+  },
   "repository": "https://github.com/lahcennh3-jpg/myportfolio",
   "productionUrl": null,
   "publication": {

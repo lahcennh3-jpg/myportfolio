@@ -6,6 +6,7 @@
   "totalResponses": 45,
   "failedResponses": [],
   "headersPresentOnAllResponses": true,
+  "contactFormPolicyOnAllResponses": true,
   "browserRendering": "unverified",
   "production": "not established by the local HTTP check"
 }

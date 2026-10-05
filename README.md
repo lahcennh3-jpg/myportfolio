@@ -14,6 +14,16 @@ About contains Ahmed’s supplied biography, GITEX AFRICA 2026 Rising Star (Indi
 
 The original template’s 18 routes remain available as generic portfolio equivalents. The three previous project URLs remain as noindex equivalents of the matching platform profiles. The alternative slider and static video-fallback routes, mobile navigation, sticky header, filtering, carousel, disclosures, scroll transitions and footer remain supported.
 
+## Contact and message delivery
+
+Home and Contact display Ahmed Amhdour, `ahmedamhdour@gmail.com` and `+212 610 374 791`, preserving the supplied international number `00212610374791`. Email and phone links also appear in the shared footer.
+
+The contact form sends a native HTTPS POST to `https://formsubmit.co/ahmedamhdour@gmail.com`. It provides labeled name, email, subject and message fields, browser validation, a hidden honeypot and FormSubmit’s default CAPTCHA. Submissions are processed by FormSubmit, which is disclosed beside the form. The security policy allows form submission only to this origin and the site itself; client-side network connections remain restricted to the site.
+
+**Mailbox activation is required and has not been verified.** According to [FormSubmit’s setup guide](https://formsubmit.co/), the first submission triggers a confirmation email. Submit one test message through the deployed form, complete any provider verification, then follow the activation link received at `ahmedamhdour@gmail.com` (check spam if necessary). Submit another message to verify delivery and the reply address. No external submission or activation email was sent during implementation.
+
+JavaScript adds an absolute thank-you URL derived from the current page’s origin and deployment path; query strings and fragments are excluded from the submitted page URL. Without JavaScript, native submission uses FormSubmit’s default confirmation page. The local thank-you page offers direct contact links and does not claim email delivery.
+
 ## Build and verify
 
 Node.js is sufficient; there are no package dependencies to install.
@@ -30,7 +40,7 @@ The preview uses port 8765 unless `PORT` is set. Generated output is `public` an
 
 | Path | Purpose |
 |---|---|
-| `data/portfolio.json` | Public profile, full About text, photo descriptions and metadata for the four selected projects |
+| `data/portfolio.json` | Public profile, contact details and form endpoint, full About text, photo descriptions and metadata for the four selected projects |
 | `src/layout.html` | Shared static shell and four-item navigation |
 | `scripts/build.mjs` | Static generator and explicit public asset allowlist |
 | `scripts/check-content.mjs` | Disclosure, artifact, link and evidence-status checks |
@@ -41,11 +51,11 @@ The preview uses port 8765 unless `PORT` is set. Generated output is `public` an
 
 ## Verification
 
-The production build and content checks pass for 26 HTML pages and 18 assets, including three original JPEG photos. Content verification checks all 18 supplied About paragraphs, the four matching Selected Work profiles on six listing pages, five focus tags per project, twelve approach focus areas, eight methodology steps and three legacy project URLs. Static validation checks 917 link/asset references. Local HTTP validation checks 26 pages + 18 assets + robots.txt = 45 nonempty HTTP 200 responses, all carrying the intended security headers; the photos use `image/jpeg`. A disclosure audit compares the output with all 143 former study-project identities; none appear in the published content or project links. Obsolete encoded staging payloads are removed from the current source.
+The production build and content checks pass for 26 HTML pages and 18 assets, including three original JPEG photos. Content verification checks all 18 supplied About paragraphs, the four matching Selected Work profiles on six listing pages, five focus tags per project, twelve approach focus areas, eight methodology steps and three legacy project URLs. Four contact forms are checked for their endpoint, required fields, accessible labels and spam protection; all pages include the supplied email and phone links in the footer. Static validation checks 985 link/asset references. Local HTTP validation checks 26 pages + 18 assets + robots.txt = 45 nonempty HTTP 200 responses, all carrying the intended security headers and contact form policy; the photos use `image/jpeg`. Six isolated JavaScript checks verify return URLs across root and subpath deployments, query strings, local previews, non-HTTP pages and rejected cross-origin return paths, without making submissions. A disclosure audit compares the output with all 143 former study-project identities; none appear in the published content or project links. Obsolete encoded staging payloads are removed from the current source. These checks do not confirm mailbox activation or email delivery.
 
 ## Publishing
 
-Vercel build configuration uses `npm run build:production` and output `public`. Source is published on GitHub `main`. The repository-linked project is `myportfolio` under `amhdour1s-projects`. GitHub reported a successful Vercel deployment for preceding content revision `3c437274ef03fd51e748221241cd4af3522758c2`; its [deployment record](https://vercel.com/amhdour1s-projects/myportfolio/FQJhH933VjDoAnoKSKgNYMKVVBEV) is linked from the GitHub commit status. New revisions are checked through the repository-linked deployment status. Project management access still returns 403 and requires reauthentication to that scope. The production origin, deployment target and live browser behavior remain unverified.
+Vercel build configuration uses `npm run build:production` and output `public`. Source is published on GitHub `main`. The repository-linked project is `myportfolio` under `amhdour1s-projects`. GitHub reported a successful Vercel deployment for preceding content revision `bda126fcfad077a995d1d80880c41c141d79ac3f`; its [deployment record](https://vercel.com/amhdour1s-projects/myportfolio/63F9Sj883UQD3jhGoc2Mjn54n8Cw) is linked from the GitHub commit status. New revisions are checked through the repository-linked deployment status. Project management access still returns 403 and requires reauthentication to that scope. The production origin, deployment target and live browser behavior remain unverified.
 
 Set `productionUrl` only after verifying the actual HTTPS origin, then rebuild to generate canonical metadata and the sitemap. Duplicate template routes are noindex and point to the corresponding primary page when an origin is available.
 

@@ -5,6 +5,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const directory=path.join(root,'public');
 const errors=[];
 const manifest=JSON.parse(await fs.readFile(path.join(root,'docs/build-manifest.json'),'utf8'));
+const {contact}=JSON.parse(await fs.readFile(path.join(root,'data/portfolio.json'),'utf8'));
 const pages=manifest.pages;
 let linkCount=0;
 for(const file of pages) {
@@ -14,10 +15,16 @@ for(const file of pages) {
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   if(ids.length!==new Set(ids).size)errors.push(`${file}: duplicate HTML IDs`);
   if(/lorem ipsum|Alonso D|Rosalina D|info@example|Bloomsbury|Happy Users|years of experience|100% readiness/i.test(html))errors.push(`${file}: template demonstration or unsupported experience remains`);
-  if(/<form\b/.test(html))errors.push(`${file}: an unconfigured form is present`);
+  const forms=[...html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/g)];
+  if(forms.length!==(manifest.contactForms.pages.includes(file)?1:0))errors.push(`${file}: unexpected number of contact forms`);
+  for(const [,attributes] of forms){
+    if(!attributes.includes(`action="${contact.formAction}"`)||!attributes.includes('method="POST"'))errors.push(`${file}: contact form has an unconfigured submission endpoint`);
+  }
+  for(const [,id] of html.matchAll(/<label\b[^>]*for="([^"]+)"/g))if(!ids.includes(id))errors.push(`${file}: label has no matching field ${id}`);
   for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
     const url=match[1];linkCount++;
     if(url.startsWith('https://')||url.startsWith('data:'))continue;
+    if(url===`mailto:${contact.email}`||url===contact.phoneUri)continue;
     if(/^(http:|javascript:|mailto:|tel:)/.test(url)){errors.push(`${file}: unsupported link ${url}`);continue;}
     const [target,hash]=url.split('#');
     const destination=path.resolve(path.dirname(path.join(directory,file)),target||path.basename(file));

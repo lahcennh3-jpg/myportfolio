@@ -138,6 +138,18 @@
     filter();
   });
 
+  document.querySelectorAll('[data-contact-form]').forEach(form => {
+    // Native POST still works without JavaScript; the provider supplies its default thank-you page.
+    if (!/^https?:$/.test(window.location.protocol)) return;
+    const returnUrl = new URL(form.dataset.thankYouPath, window.location.href);
+    if (returnUrl.origin !== window.location.origin) return;
+    for (const [name, value] of [['_next', returnUrl.href], ['_url', window.location.origin + window.location.pathname]]) {
+      const field = document.createElement('input');
+      field.type = 'hidden';field.name = name;field.value = value;
+      form.append(field);
+    }
+  });
+
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
