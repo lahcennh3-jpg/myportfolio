@@ -21,10 +21,10 @@ const projectSlugs=['enterprise-ai-assistant','self-hosted-ai-chat','private-ai-
 expect(JSON.stringify(data.about.projects.map(project=>project.slug))===JSON.stringify(projectSlugs),'Selected Work must use the four About project profiles in their supplied order.');
 expect(manifest.selectedProjects.length===4 && manifest.selectedProjects.every(project=>project.presentation==='Security focus'),'Project profiles must describe security focus without claiming completed results.');
 expect(!/\b(?:[MPCE]\d{2,3}|[a-f0-9]{40,64})\b/i.test(JSON.stringify(data)),'A research identifier or source pin reached public content.');
-expect(JSON.stringify(manifest.primaryNavigation)===JSON.stringify(['Home','Selected Work','About','Contact']),'The four-page navigation changed.');
+expect(JSON.stringify(manifest.primaryNavigation)===JSON.stringify(['Home','Selected Work','Training','About','Contact']),'The four-page navigation changed.');
 const legacyRoutes=[{file:'work/authorization.html',target:'work/enterprise-ai-assistant.html'},{file:'work/retrieval-permissions.html',target:'work/private-ai-knowledge.html'},{file:'work/tool-authorization.html',target:'work/multi-provider-ai-conversation.html'}];
 expect(JSON.stringify(manifest.legacyProjectRoutes)===JSON.stringify(legacyRoutes),'The existing project URLs lost their matching platform profiles.');
-const allowedPages=['index.html','projects.html','about.html','contact.html','credits.html',...projectSlugs.map(slug=>'work/'+slug+'.html'),...legacyRoutes.map(route=>route.file),'index-2.html','index-3.html','services.html','single-service.html','single-projects.html','team.html','team-single.html','blog.html','blog-details.html','faq.html','pricing.html','shop.html','shop-details.html','thank-you.html'];
+const allowedPages=['index.html','projects.html','about.html','contact.html','training.html','trainer-profile.html','workshop-ai-security.html','credits.html',...projectSlugs.map(slug=>'work/'+slug+'.html'),...legacyRoutes.map(route=>route.file),'index-2.html','index-3.html','services.html','single-service.html','single-projects.html','team.html','team-single.html','blog.html','blog-details.html','faq.html','pricing.html','shop.html','shop-details.html','thank-you.html'];
 expect(new Set(manifest.pages).size===allowedPages.length && manifest.pages.every(file=>allowedPages.includes(file)),'Unexpected pages or duplicate routes were generated.');
 const aboutHtml=await fs.readFile(path.join(directory,'about.html'),'utf8');
 expect(data.fullName==='Ahmed Amhdour','The supplied full name changed.');
@@ -77,6 +77,12 @@ for(const route of legacyRoutes){
   const html=await fs.readFile(path.join(directory,route.file),'utf8');
   expect(html.includes('<meta name="robots" content="noindex, follow">') && !manifest.indexedPages.includes(route.file),`${route.file}: the legacy equivalent must be noindex.`);
 }
+for(const file of ['training.html','trainer-profile.html','workshop-ai-security.html']){
+ const html=await fs.readFile(path.join(directory,file),'utf8');
+ expect(/proposal|proposed|preparation/i.test(html),file+': proposal status missing');
+ expect(html.includes('contact.html#contact'),file+': inquiry path missing');
+ expect(!/Available now|Previously delivered/.test(html),file+': misleading availability claim');
+}
 async function walk(folder){return (await Promise.all((await fs.readdir(folder,{withFileTypes:true})).map(entry=>entry.isDirectory()?walk(path.join(folder,entry.name)):[path.relative(directory,path.join(folder,entry.name))]))).flat();}
 const files=await walk(directory);
 const allowedFiles=new Set([...manifest.pages,...manifest.assets,'robots.txt',...(data.productionUrl?['sitemap.xml']:[])]);
@@ -109,7 +115,7 @@ for(const file of manifest.pages){
   }
   expect(!/\b(?:M\d{2}|P\d{3}|C\d{2}|U\d{2})\b/.test(html),`${file}: a research identifier was published.`);
 }
-const report={result:errors.length?'fail':'pass',primaryPages:4,contactFormsChecked,contactDelivery:'FormSubmit endpoint configured; mailbox activation and delivery unverified',aboutProjectProfiles:data.about.projects.length,suppliedAboutParagraphsChecked:aboutCopy.length,aboutPhotos:data.about.photos.length,selectedProjectProfiles:manifest.selectedProjects.length,projectListingsChecked:6,focusAreasPerProject:5,legacyProjectRoutes:legacyRoutes.length,publishedPages:manifest.pages.length,publishedAssets:manifest.assets.length,externalLinksChecked:checkedExternalLinks,publicArtifactAllowlist:'enforced',researchDownloads:false,completedAssessmentClaims:0,browserRendering:'unverified',errors};
+const report={result:errors.length?'fail':'pass',primaryPages:7,trainingPages:3,contactFormsChecked,contactDelivery:'FormSubmit endpoint configured; mailbox activation and delivery unverified',aboutProjectProfiles:data.about.projects.length,suppliedAboutParagraphsChecked:aboutCopy.length,aboutPhotos:data.about.photos.length,selectedProjectProfiles:manifest.selectedProjects.length,projectListingsChecked:6,focusAreasPerProject:5,legacyProjectRoutes:legacyRoutes.length,publishedPages:manifest.pages.length,publishedAssets:manifest.assets.length,externalLinksChecked:checkedExternalLinks,publicArtifactAllowlist:'enforced',researchDownloads:false,completedAssessmentClaims:0,browserRendering:'unverified',errors};
 await fs.writeFile(path.join(root,'docs/content-verification.json'),JSON.stringify(report,null,2)+'\n');
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}
 console.log(`Content checks passed: four primary pages, ${contactFormsChecked} configured contact forms, four project profiles matching About, ${files.length} allowlisted public artifacts, and ${checkedExternalLinks} approved external links.`);

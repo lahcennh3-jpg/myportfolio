@@ -66,3 +66,9 @@ Local checks do not establish browser layout, keyboard or motion behavior, conso
 The current website and main source omit the full research system. Previous Git commits remain historical records; removing current files or navigation does not remove earlier repository versions or copies. Repository visibility and any history rewrite are separate actions, not part of this content revision.
 
 See `docs/CONTENT_PROVENANCE.md`, `docs/TEMPLATE_ADAPTATION.md` and `docs/THIRD_PARTY_NOTICES.md` for source scope and retained attribution.
+
+## Training opportunities (proposals)
+
+Three additional pages support potential guest teaching in Agadir: `training.html`, `trainer-profile.html` and `workshop-ai-security.html`. The latter two offer browser print → save as PDF. They describe proposed content, not courses already delivered or independently validated. Existing four project profiles remain unchanged. Run the normal build and content/HTTP/link checks before publication. The current FormSubmit mailbox activation and real-world delivery remain unverified; users may use the visible direct email and phone instead.
+
+The feature-branch GitHub workflow runs these static checks on push/PR. Browser layout, printing, actual email delivery and Vercel deployment remain separate verification tasks.

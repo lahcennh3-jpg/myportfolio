@@ -1,8 +1,8 @@
 {
   "name": "Ahmed Amhdour",
-  "role": "AI Security Engineer",
+  "role": "Aspiring AI Security Engineer",
   "direction": "AI Application & Product Security",
-  "intro": "I’m Ahmed Amhdour, an AI Security Engineer focused on securing AI applications, RAG systems, and autonomous agents. My focus is protecting sensitive data, enforcing authorization, and keeping agent actions within clear security boundaries.",
+  "intro": "I'm Ahmed Amhdour, developing an evidence-led AI security engineering portfolio focused on AI applications, retrieval systems, and autonomous agents. I examine sensitive-data boundaries, authorization and safe tool use.",
   "github": "https://github.com/lahcennh3-jpg",
   "contact": {
     "email": "ahmedamhdour@gmail.com",
@@ -38,7 +38,7 @@
   "fullName": "Ahmed Amhdour",
   "about": {
     "biography": [
-      "I’m **Ahmed Amhdour**, a self-taught **AI Security Engineer** focused on securing AI applications, RAG systems, autonomous agents, and the infrastructure that connects them.",
+      "I'm **Ahmed Amhdour**, a self-taught aspiring **AI Security Engineer** developing security work for AI applications, retrieval systems, and autonomous agents.",
       "I’m also a **GITEX AFRICA 2026 Cyber & AI Achiever Award recipient — Rising Star (Individual)**, recognized in Marrakech for my work and direction in cybersecurity and AI security.",
       "My focus is on understanding where **identity, sensitive data, retrieval, models, tools, agents, and external services cross trust boundaries**. I approach AI security through source-code analysis, threat modeling, controlled security labs, architecture tracing, adversarial testing, and reproducible evidence.",
       "Rather than focusing on a single framework, I study security principles that transfer across modern AI systems."
@@ -171,7 +171,7 @@
       }
     ],
     "homeSummary": [
-      "I’m **Ahmed Amhdour**, an **AI Security Engineer** focused on securing AI applications, RAG systems, and autonomous agents.",
+      "I'm **Ahmed Amhdour**, developing an **AI security engineering portfolio** focused on AI applications, RAG systems, and autonomous agents.",
       "GITEX AFRICA 2026 **Cyber & AI Achiever Award — Rising Star (Individual)** recipient."
     ]
   }
