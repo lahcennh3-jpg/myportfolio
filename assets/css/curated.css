@@ -66,3 +66,31 @@
 @media(max-width:991px){.curated-work-grid{grid-template-columns:1fr}.about-bio-grid{gap:32px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.about-project{padding:28px}.about-recognition-gallery{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}}
 @media(max-width:767px){.curated-work-grid .case-card h3{font-size:1.5rem}}
 @media(max-width:767px){.about-bio-grid,.about-project-grid,.about-recognition-gallery{grid-template-columns:minmax(0,1fr)}.about-bio-grid{gap:30px}.about-portrait{width:100%;max-width:420px}.about-portrait-frame{aspect-ratio:4/3}.about-recognition{margin-top:48px;padding-top:35px}.about-award-media{height:auto}.about-award-media img{height:auto}.about-project{padding:26px 22px}.about-security-focus{padding:20px}.about-approach-copy p{margin-bottom:24px}}
+
+/* Optional teaching proposal pages: retain existing visual language. */
+.training-teaser{background:#e9eeee;color:#102126}
+.training-teaser-inner{display:grid;grid-template-columns:2fr 1fr;gap:44px;align-items:center}
+.training-teaser h2{font-size:clamp(1.8rem,3.2vw,2.8rem)}
+.training-teaser-links{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.training-page{background:#f5f7f6;color:#102126}
+.training-page .container{max-width:1130px}
+.training-page h2{font-size:clamp(1.65rem,3vw,2.5rem)}
+.training-page h3{font-size:1.35rem}
+.training-page a:not(.btn){text-decoration:underline;text-underline-offset:3px}
+.training-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:35px 0}
+.training-cards article{background:#fff;border:1px solid #c4d0cf;padding:28px;min-width:0}
+.training-status{font-size:.78rem;text-transform:uppercase;font-weight:700;letter-spacing:.07em;color:#963d2f}
+.training-action{margin-top:30px;background:#e8eeee;border-left:4px solid #963d2f;padding:30px}
+.training-action .btn{margin:8px 15px 8px 0}
+.training-note{margin-top:28px}
+.training-sheet{background:white;max-width:850px!important;padding:42px!important;border:1px solid #d1dbd9}
+.training-sheet-top{display:flex;justify-content:space-between;gap:20px;align-items:start;border-bottom:2px solid #963d2f;padding-bottom:25px;margin-bottom:25px}
+.training-sheet-top h2{font-size:2rem}
+.training-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:35px}
+.training-disclosure{padding:18px 22px;background:#eef2f1}
+.training-page li{margin-bottom:7px}
+.print-control{white-space:nowrap;cursor:pointer}
+.training-page a:focus-visible,.training-teaser a:focus-visible,.print-control:focus-visible{outline:3px solid #963d2f;outline-offset:3px}
+@media(max-width:990px){.training-teaser-inner{grid-template-columns:1fr}.training-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.training-cards,.training-columns{grid-template-columns:1fr}.training-sheet{padding:23px!important}.training-sheet-top{flex-direction:column}}
+@media print{@page{size:A4;margin:14mm}.header-area,.footer-bg,#preloader,.back-to-top,.page-intro,.print-control,.skip-link{display:none!important}.section-space{padding:0!important}.training-page{background:#fff!important}.training-sheet{padding:0!important;border:0!important;max-width:none!important}.training-sheet section{break-inside:avoid}.training-sheet h2{font-size:22pt}.training-sheet p,.training-sheet li{font-size:10pt;line-height:1.4}.training-disclosure{background:#eee!important}}

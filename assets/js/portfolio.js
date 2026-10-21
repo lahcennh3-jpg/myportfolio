@@ -161,4 +161,8 @@
       });
     });
   }
+  // Print controls are bound in external JS to respect the site's CSP.
+  document.querySelectorAll('[data-print-page]').forEach(button => {
+    button.addEventListener('click', () => window.print());
+  });
 })();
